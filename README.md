@@ -22,6 +22,6 @@ FreeCare Network is an open-source project, and contributions are welcome! Wheth
 designer, or passionate about the cause, there are various ways to get involved.
 
 # contributers
-<a href="https://github.com/adilm53/FreeCare-Network/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=adilm53/FreeCare-Network" />
+<a href="https://github.com/adilma53/FreeCare-Network/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=adilma53/FreeCare-Network" />
 </a>
