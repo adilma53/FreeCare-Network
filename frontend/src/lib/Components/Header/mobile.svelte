@@ -18,7 +18,7 @@
 	<div class="flex flex-row pt-5 overflow-x-scroll">
 		{#each category as cat}
 			<div
-				class="flex flex-auto justify-evenly  border rounded-lg border-gray-300 bg-gray-200/50 mx-3 dark:border-gray-600/60 dark:text-white"
+				class="flex flex-auto justify-evenly border rounded-lg border-gray-300 bg-gray-200/50 mx-3 dark:border-gray-600/60 dark:text-white"
 			>
 				<button on:click={filter} class=" px-2 py-1">
 					<input type="radio" class="hidden" id={cat} />
