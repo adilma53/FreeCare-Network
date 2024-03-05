@@ -9,7 +9,7 @@
 	};
 </script>
 
-<header class="text-surface-200">
+<header class="dark:text-surface-200 text-black">
 	<div class="flex flex-row pt-5 mx-5 space-x-3">
 		<!-- TODO: Avatar -->
 		<Avatar
