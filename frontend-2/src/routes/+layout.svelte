@@ -1,6 +1,5 @@
 <script>
-	import '../app.pcss';
-	import './styles.css';
+	import '../app.postcss';
 </script>
 
 <div class="app">
