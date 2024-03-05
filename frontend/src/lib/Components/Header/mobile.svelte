@@ -10,8 +10,8 @@
 </script>
 
 <header class="dark:text-surface-200 text-black">
-	<div class="grid grid-flow-col items-center justify-between">
-		<div class="flex flex-row pt-5 mx-5 space-x-3">
+	<div class="flex items-start justify-between pr-3">
+		<div class="flex flex-row p-5 space-x-3">
 			<!-- TODO: Avatar -->
 			<Avatar
 				src="https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=crop"
@@ -23,7 +23,7 @@
 				{offerAid}
 			</div>
 		</div>
-		<div class="py-5">
+		<div class="py-6">
 			<LightSwitch />
 		</div>
 	</div>
