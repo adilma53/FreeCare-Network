@@ -1,0 +1,37 @@
+[
+  {
+    "id": 1,
+    "category": "Education",
+    "title": "Free Math Tutoring",
+    "description": "I can offer free online math tutoring for students of all ages. I have a strong background in mathematics and enjoy helping others learn.",
+    "image": "https://placeimg.com/640/480/education"
+  },
+  {
+    "id": 2,
+    "category": "Companionship",
+    "title": "Friendly Chat and Support",
+    "description": "Looking to connect with someone for friendly conversation and emotional support. Open to chatting about anything!",
+    "image": "https://placeimg.com/640/480/people"
+  },
+  {
+    "id": 3,
+    "category": "Technology",
+    "title": "Website Development Assistance",
+    "description": "I can help with basic website development tasks like setting up a website or troubleshooting technical issues.",
+    "image": "https://placeimg.com/640/480/tech"
+  },
+  {
+    "id": 4,
+    "category": "Fitness",
+    "title": "Running Buddy",
+    "description": "Looking for a running buddy to motivate each other and enjoy outdoor exercise together.",
+    "image": "https://placeimg.com/640/480/sports"
+  },
+  {
+    "id": 5,
+    "category": "Arts & Crafts",
+    "title": "Knitting and Crocheting Lessons",
+    "description": "I can teach beginners the basics of knitting and crocheting in a friendly and patient manner.",
+    "image": "https://placeimg.com/640/480/art"
+  }
+]

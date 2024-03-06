@@ -2,7 +2,7 @@
 	import { Avatar, LightSwitch } from '@skeletonlabs/skeleton';
 	let offerAid = 'Home';
 	const category = ['Food', 'Clothes', 'Shelter', 'Health', 'Adoption'];
-	const filter = () => {
+	export const filter = () => {
 		category.forEach((cat) => {
 			console.log(cat);
 		});
