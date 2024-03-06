@@ -1,5 +1,5 @@
 <script>
-	import { Avatar, LightSwitch } from '@skeletonlabs/skeleton';
+	import { LightSwitch } from '@skeletonlabs/skeleton';
 	let offerAid = 'Home';
 	const category = ['Food', 'Clothes', 'Shelter', 'Health', 'Adoption'];
 	export const filter = () => {
@@ -13,11 +13,6 @@
 	<div class="flex items-start justify-between pr-3">
 		<div class="flex flex-row p-5 space-x-3">
 			<!-- TODO: Avatar -->
-			<Avatar
-				src="https://images.unsplash.com/photo-1617296538902-887900d9b592?ixid=M3w0Njc5ODF8MHwxfGFsbHx8fHx8fHx8fDE2ODc5NzExMDB8&ixlib=rb-4.0.3&w=128&h=128&auto=format&fit=crop"
-				width="w-9"
-				rounded="rounded-full"
-			/>
 			<!-- !Head title -->
 			<div class="flex text-center justify-center font-semibold text-2xl">
 				{offerAid}
