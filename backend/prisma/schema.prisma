@@ -13,67 +13,45 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Post {
-  id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
-  content   String?
-  published Boolean  @default(false)
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
-}
 
-model Profile {
-  id     Int     @id @default(autoincrement())
-  bio    String?
-  user   User    @relation(fields: [userId], references: [id])
-  userId Int     @unique
-}
 
 model User {
-  id      Int      @id @default(autoincrement())
-  email   String   @unique
-  name    String?
-  posts   Post[]
-  profile Profile?
+  id           Int     @id @default(autoincrement())
+  email        String  @unique
+  password     String
+  name         String?
+  bio          String?
+  occupation   String?
+  posts        Post[]
+  claimedPosts Claim[]
 }
 
-// model User {
-//   id           Int     @id @default(autoincrement())
-//   email        String  @unique
-//   password     String
-//   name         String
-//   posts        Post[]
-//   claimedPosts Claim[]
-// }
+model Post {
+  id            Int      @id @default(autoincrement())
+  title         String
+  content       String
+  image         String
+  claimLimit    Int
+  currentClaims Int      @default(0)
+  expiresAt     DateTime
+  category      Category
+  author        User     @relation(fields: [authorId], references: [id])
+  authorId      Int
+  claims        Claim[]
+}
 
-// model Post {
-//   id            Int      @id @default(autoincrement())
-//   title         String
-//   content       String
-//   image         String
-//   claimLimit    Int
-//   currentClaims Int      @default(0)
-//   expiresAt     DateTime
-//   category      Category
-//   author        User     @relation(fields: [authorId], references: [id])
-//   authorId      Int
-//   claims        Claim[]
-// }
+model Claim {
+  id          Int      @id @default(autoincrement())
+  claimedBy   User     @relation(fields: [claimedById], references: [id])
+  claimedById Int
+  post        Post     @relation(fields: [postId], references: [id])
+  postId      Int
+  claimedAt   DateTime @default(now())
+}
 
-// model Claim {
-//   id          Int      @id @default(autoincrement())
-//   claimedBy   User     @relation(fields: [claimedById], references: [id])
-//   claimedById Int
-//   post        Post     @relation(fields: [postId], references: [id])
-//   postId      Int
-//   claimedAt   DateTime @default(now())
-// }
-
-// enum Category {
-//   FOOD
-//   THERAPY
-//   DOCTOR
-//   SHELTER
-// }
+enum Category {
+  FOOD
+  THERAPY
+  DOCTOR
+  SHELTER
+}

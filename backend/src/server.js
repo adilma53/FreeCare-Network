@@ -12,6 +12,9 @@ import session from "express-session";
 import swaggerUi from "swagger-ui-express";
 import specs from "./config/swagger.js";
 
+import * as dummy from "./utils/DummyData.util.js";
+import * as service from "./services/user.service.js";
+
 // ---------------------------------
 // routes import
 import helloRoutes from "./routes/hello.route.js";
@@ -52,26 +55,10 @@ app.use(cookieParser());
 app.use("/hello", helloRoutes);
 // ---------------------------------
 
-//-----------------------
-// await prisma.user.create({
-//     data: {
-//         name: 'Alice',
-//         email: 'alicrewre@prisma.io',
-//         posts: {
-//             create: { title: 'Hello World' },
-//         },
-//         profile: {
-//             create: { bio: 'I like turtles' },
-//         },
-//     },
-// })
+// const userData = { email: "adil5@gmail.com", password: "password5" };
+// service.createUser(userData);
 
-const allUsers = await prisma.user.findMany({
-  include: {
-    posts: true,
-    profile: true,
-  },
-});
+const allUsers = await prisma.user.findMany();
 console.dir(allUsers, { depth: null });
 //-----------------------
 
