@@ -15,7 +15,7 @@
 </script>
 
 <div
-	class="fixed bottom-5 rounded-xl z-50 w-full h-16 bg-surface-200 dark:bg-surface-600 dark:border-[0.5px] border-surface-700"
+	class="fixed bottom-5 rounded-xl z-50 w-full h-16 border-[0.5px] border-surface-100 dark:border-none dark:bg-surface-600 dark:border-[0.5px] border-surface-700"
 >
 	<div class="grid h-full flex items-stratch grid-cols-3 mx-auto">
 		<button on:click={home}>
