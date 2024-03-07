@@ -9,10 +9,23 @@ import helmet from 'helmet';
 import compression from 'compression';
 import cookieParser from 'cookie-parser';
 import { PrismaClient } from '@prisma/client'
+import passport from 'passport';
+import passportConfig from './auth/passport.js';
+
+
+
 
 const prisma = new PrismaClient()
 const app = express()
 const port = 3000
+
+
+// Initialize Passport.js in your application
+app.use(passport.initialize());
+app.use(passport.session());
+// Configure Passport.js with the local strategy
+passportConfig(passport);
+
 
 // Logging middleware
 app.use(morgan('dev'));
@@ -34,18 +47,18 @@ app.use(compression());
 app.use(cookieParser());
 
 //-----------------------
-await prisma.user.create({
-    data: {
-        name: 'Alice',
-        email: 'alice_may@prisma.io',
-        posts: {
-            create: { title: 'Hello World' },
-        },
-        profile: {
-            create: { bio: 'I like turtles' },
-        },
-    },
-})
+// await prisma.user.create({
+//     data: {
+//         name: 'Alice',
+//         email: 'alicrewre@prisma.io',
+//         posts: {
+//             create: { title: 'Hello World' },
+//         },
+//         profile: {
+//             create: { bio: 'I like turtles' },
+//         },
+//     },
+// })
 
 const allUsers = await prisma.user.findMany({
     include: {
@@ -65,3 +78,6 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`)
 })
+
+
+export { prisma };
