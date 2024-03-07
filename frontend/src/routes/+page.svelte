@@ -1,9 +1,9 @@
 <script>
-	import { Header, Body } from '$lib';
+	import { Filter, Body } from '$lib';
 	//export let data;
 </script>
 
 <main>
-	<Header />
+	<Filter />
 	<Body />
 </main>

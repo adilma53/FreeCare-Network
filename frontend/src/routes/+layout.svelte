@@ -1,9 +1,10 @@
 <script>
 	import '../app.postcss';
-	import { Footer } from '$lib';
+	import { Footer, Header } from '$lib';
 </script>
 
 <div class="app">
+	<Header />
 	<main>
 		<slot />
 	</main>

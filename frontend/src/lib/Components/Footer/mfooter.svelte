@@ -10,7 +10,7 @@
 	};
 
 	const login = async () => {
-		goto('/usr/login');
+		goto('/auth/login');
 	};
 </script>
 
@@ -25,7 +25,7 @@
 			<Icon icon="material-symbols-light:add" class="dark:text-surface-200 ml-10 h-8 w-8" />
 		</button>
 		<button on:click={login} type="button">
-			<Icon icon="iconamoon:profile-thin" class="dark:text-surface-200 ml-10 h-8 w-8" />
+			<Icon icon="iconamoon:profile-thin" class="dark:text-surface-200 ml-10  h-8 w-8" />
 		</button>
 	</div>
 </div>
