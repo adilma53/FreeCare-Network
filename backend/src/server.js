@@ -1,50 +1,56 @@
+import express from "express";
+import cors from "cors";
+import morgan from "morgan";
+import helmet from "helmet";
+import compression from "compression";
+import cookieParser from "cookie-parser";
+import { PrismaClient } from "@prisma/client";
+import passport from "passport";
+import passportConfig from "./auth/passport.js";
+import session from "express-session";
 
+import swaggerUi from "swagger-ui-express";
+import specs from "./config/swagger.js";
 
+// ---------------------------------
+// routes import
+import helloRoutes from "./routes/hello.route.js";
+// ---------------------------------
 
-//-----------------------
-import express from 'express';
-import cors from 'cors';
-import morgan from 'morgan';
-import helmet from 'helmet';
-import compression from 'compression';
-import cookieParser from 'cookie-parser';
-import { PrismaClient } from '@prisma/client'
-import passport from 'passport';
-import passportConfig from './auth/passport.js';
+const prisma = new PrismaClient();
+const app = express();
+const port = 3000;
 
+app.use("/api-docs", swaggerUi.serve, swaggerUi.setup(specs));
 
-
-
-const prisma = new PrismaClient()
-const app = express()
-const port = 3000
-
-
+passportConfig(passport);
+app.use(
+  session({
+    secret: "efwefwfew4324242wef", // replace with your own secret key
+    resave: false,
+    saveUninitialized: false,
+  }),
+);
 // Initialize Passport.js in your application
 app.use(passport.initialize());
 app.use(passport.session());
 // Configure Passport.js with the local strategy
-passportConfig(passport);
-
 
 // Logging middleware
-app.use(morgan('dev'));
-
+app.use(morgan("dev"));
 // Security middleware
 app.use(helmet());
-
 // Body parsing middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-// CORS middleware
 app.use(cors());
-
-// Compression middleware
 app.use(compression());
-
-// Cookie and session middleware
 app.use(cookieParser());
+
+// ---------------------------------
+// routes usage
+app.use("/hello", helloRoutes);
+// ---------------------------------
 
 //-----------------------
 // await prisma.user.create({
@@ -61,23 +67,16 @@ app.use(cookieParser());
 // })
 
 const allUsers = await prisma.user.findMany({
-    include: {
-        posts: true,
-        profile: true,
-    },
-})
-console.dir(allUsers, { depth: null })
+  include: {
+    posts: true,
+    profile: true,
+  },
+});
+console.dir(allUsers, { depth: null });
 //-----------------------
 
-
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
-
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
-
+  console.log(`Example app listening on port ${port}`);
+});
 
 export { prisma };
