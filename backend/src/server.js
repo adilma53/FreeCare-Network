@@ -17,7 +17,9 @@ import * as service from "./services/user.service.js";
 
 // ---------------------------------
 // routes import
-import helloRoutes from "./routes/hello.route.js";
+import helloRoutes from "./routes/hello.routes.js";
+import userRoutes from "./routes/user.routes.js";
+
 // ---------------------------------
 
 const prisma = new PrismaClient();
@@ -53,6 +55,7 @@ app.use(cookieParser());
 // ---------------------------------
 // routes usage
 app.use("/hello", helloRoutes);
+app.use("/user", userRoutes);
 // ---------------------------------
 
 // const userData = { email: "adil5@gmail.com", password: "password5" };
