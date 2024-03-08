@@ -6,5 +6,4 @@
 <div class="md:hidden">
 	<SingupMobile />
 </div>
-<div class="hidden md:block">
-</div>
+<div class="hidden md:block"></div>

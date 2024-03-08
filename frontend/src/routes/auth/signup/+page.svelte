@@ -1,5 +1,5 @@
 <script>
-  import { Signup } from "$lib";
+	import { Signup } from '$lib';
 </script>
 
 <Signup />

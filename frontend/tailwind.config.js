@@ -28,9 +28,7 @@ export default {
 						enhancements: true
 					}
 				],
-				custom: [
-					myCustomTheme
-				]
+				custom: [myCustomTheme]
 			}
 		})
 	]

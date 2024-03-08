@@ -1,9 +1,13 @@
 <div class="pt-24 flex items-center justify-center w-full">
 	<div class="bg-surface-100 dark:bg-surface-700 shadow-xl rounded-xl px-8 py-10 space-y-5">
-		<h1 class="text-2xl font-bold text-center mb-4 dark:text-surface-200">Welcome to FreeCare Net</h1>
+		<h1 class="text-2xl font-bold text-center mb-4 dark:text-surface-200">
+			Welcome to FreeCare Net
+		</h1>
 		<form action="?/login">
 			<div class="mb-4">
-				<label for="email" class="block text-base font-medium text-surface-700 dark:text-surface-300 mb-3"
+				<label
+					for="email"
+					class="block text-base font-medium text-surface-700 dark:text-surface-300 mb-3"
 					>Email Address</label
 				>
 				<input
@@ -17,7 +21,8 @@
 			<div class="mb-4">
 				<label
 					for="password"
-					class="block text-base font-medium text-surface-700 dark:text-surface-300 mb-3">Password</label
+					class="block text-base font-medium text-surface-700 dark:text-surface-300 mb-3"
+					>Password</label
 				>
 				<input
 					type="password"
@@ -39,9 +44,7 @@
 						>Remember me</label
 					>
 				</div>
-				<a
-					href="/auth/signup"
-					class="text-xs text-primary-500 hover:text-primary-700 "
+				<a href="/auth/signup" class="text-xs text-primary-500 hover:text-primary-700"
 					>Create Account</a
 				>
 			</div>

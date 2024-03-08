@@ -5,6 +5,4 @@
 <div class="md:hidden">
 	<FMobile />
 </div>
-<div class="hidden md:block">
-
-</div>
+<div class="hidden md:block"></div>

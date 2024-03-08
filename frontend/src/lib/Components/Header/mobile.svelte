@@ -9,10 +9,9 @@
 	};
 </script>
 
-
 <svelte:head>
-  <title>{title}</title>
-  <meta name="description" content="Offers for peoples who needs help" />
+	<title>{title}</title>
+	<meta name="description" content="Offers for peoples who needs help" />
 </svelte:head>
 
 <header class="dark:text-surface-200 text-black">
