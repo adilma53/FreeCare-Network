@@ -6,6 +6,7 @@ const router = express.Router();
  * @swagger
  * /hello:
  *   get:
+ *     tags: [Hello]
  *     summary: Returns 'Hello World!'
  *     description: A simple endpoint that returns 'Hello World!'.
  *     responses:
