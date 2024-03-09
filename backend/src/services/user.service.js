@@ -4,13 +4,11 @@ import { prisma } from "../server.js";
 export async function createUser(userData) {
   const user = await prisma.user.create({ data: userData });
 
-  console.log("this is user ->", user);
-
   return user;
 }
 // get user by id
-export async function getUserById(id) {
-  const user = await prisma.user.findUnique({ where: id });
+export async function getUserById(userId) {
+  const user = await prisma.user.findUnique({ where: { id: userId } });
 
   return user;
 }
@@ -18,17 +16,22 @@ export async function getUserById(id) {
 export async function getAllUsers() {
   const users = await prisma.user.findMany();
 
+  console.log("this is findMany ->", users);
+
   return users;
 }
 // update user by id
-export async function updateUserById(id, userData) {
-  const user = await prisma.user.update({ where: id, data: userData });
+export async function updateUserById(userId, userData) {
+  const user = await prisma.user.update({
+    where: { id: userId },
+    data: userData,
+  });
 
   return user;
 }
 // delete user by id
-export async function deleteUserById(id) {
-  const user = await prisma.user.delete({ where: id });
+export async function deleteUserById(userId) {
+  const user = await prisma.user.delete({ where: { id: userId } });
 
   return user;
 }

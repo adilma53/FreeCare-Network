@@ -28,12 +28,95 @@ const router = express.Router();
  */
 router.post("/create", userController.createUser);
 
+/**
+ * @swagger
+ * /user/{id}:
+ *   get:
+ *     description: Get user by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: User ID
+ *     responses:
+ *       '200':
+ *         description: A successful response
+ *       '400':
+ *         description: Bad request
+ *       '500':
+ *         description: Server error
+ */
 router.get("/:id", userController.getUser);
 
+/**
+ * @swagger
+ * /user:
+ *   get:
+ *     description: Get all users
+ *     responses:
+ *       '200':
+ *         description: A successful response
+ *       '400':
+ *         description: Bad request
+ *       '500':
+ *         description: Server error
+ */
 router.get("/", userController.getUsers);
 
+/**
+ * @swagger
+ * /user/{id}:
+ *   put:
+ *     description: Update user by ID
+ *     requestBody:
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               email:
+ *                 type: string
+ *               password:
+ *                 type: string
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: User ID
+ *     responses:
+ *       '200':
+ *         description: A successful response
+ *       '400':
+ *         description: Bad request
+ *       '500':
+ *         description: Server error
+ */
 router.put("/:id", userController.updateUser);
 
+/**
+ * @swagger
+ * /user/{id}:
+ *   delete:
+ *     description: Delete user by ID
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: User ID
+ *     responses:
+ *       '200':
+ *         description: A successful response
+ *       '400':
+ *         description: Bad request
+ *       '500':
+ *         description: Server error
+ */
 router.delete("/:id", userController.deleteUser);
 
 // get one by id
@@ -43,9 +126,5 @@ router.delete("/:id", userController.deleteUser);
 // update one by id
 
 // delete one by id
-
-// router.get("/:id", (req, res) => {
-//   res.send(`hello: ${req.params.id}`);
-// });
 
 export default router;

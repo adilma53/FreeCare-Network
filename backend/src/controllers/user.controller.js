@@ -17,7 +17,7 @@ export async function createUser(req, res) {
 // get one by id
 export async function getUser(req, res) {
   try {
-    const user = await userService.getUserById(req.params.id);
+    const user = await userService.getUserById(parseInt(req.params.id));
     if (user) {
       res.status(200).json(user);
     } else {
@@ -43,9 +43,12 @@ export async function getUsers(req, res) {
 }
 
 // update one by id
-export async function createUser(req, res) {
+export async function updateUser(req, res) {
   try {
-    const user = await userService.createUser(req.body);
+    const user = await userService.updateUserById(
+      parseInt(req.params.id),
+      req.body,
+    );
     if (user) {
       res.status(200).json(user);
     } else {
@@ -59,7 +62,7 @@ export async function createUser(req, res) {
 // delete one by id
 export async function deleteUser(req, res) {
   try {
-    const user = await userService.deleteUserById(req.params.id);
+    const user = await userService.deleteUserById(parseInt(req.params.id));
     if (user) {
       res.status(200).json(user);
     } else {
