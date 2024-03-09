@@ -8,7 +8,6 @@ const router = express.Router();
  * /user/create:
  *   post:
  *     summary: Create a new user
- *     description: A simple endpoint to create a new user.
  *     requestBody:
  *       content:
  *         application/json:
@@ -19,7 +18,6 @@ const router = express.Router();
  *                 type: string
  *               password:
  *                 type: string
- *               # Add other properties as per your user model
  *     responses:
  *       '200':
  *         description: A successful response
@@ -29,6 +27,22 @@ const router = express.Router();
  *         description: Server error
  */
 router.post("/create", userController.createUser);
+
+router.get("/:id", userController.getUser);
+
+router.get("/", userController.getUsers);
+
+router.put("/:id", userController.updateUser);
+
+router.delete("/:id", userController.deleteUser);
+
+// get one by id
+
+// get all
+
+// update one by id
+
+// delete one by id
 
 // router.get("/:id", (req, res) => {
 //   res.send(`hello: ${req.params.id}`);

@@ -4,6 +4,8 @@ import { prisma } from "../server.js";
 export async function createUser(userData) {
   const user = await prisma.user.create({ data: userData });
 
+  console.log("this is user ->", user);
+
   return user;
 }
 // get user by id
