@@ -16,8 +16,6 @@ export async function getUserById(userId) {
 export async function getAllUsers() {
   const users = await prisma.user.findMany();
 
-  console.log("this is findMany ->", users);
-
   return users;
 }
 // update user by id

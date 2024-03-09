@@ -5,9 +5,9 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Your API Title",
+      title: "FreeCare API",
       version: "1.0.0",
-      description: "Your API description",
+      description: "the api for FreeCare Network charity Platform",
     },
     servers: [
       {

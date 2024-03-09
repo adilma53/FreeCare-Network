@@ -1,23 +1,54 @@
 import express from "express";
-import * as userController from "../controllers/user.controller.js";
+import * as postController from "../controllers/post.controller.js";
 
 const router = express.Router();
+// model Post {
+//     id            Int      @id @default(autoincrement())
+//     title         String
+//     content       String
+//     image         String
+//     claimLimit    Int
+//     currentClaims Int      @default(0)
+//     expiresAt     DateTime
+//     category      Category
+//     author        User     @relation(fields: [authorId], references: [id])
+//     authorId      Int
+//     claims        Claim[]
+//   }
+
+// enum Category {
+//     FOOD
+//     THERAPY
+//     DOCTOR
+//     SHELTER
+//   }
 
 /**
  * @swagger
- * /user/create:
+ * /post/create:
  *   post:
- *     summary: Create a new user
+ *     tags: [Posts]
+ *     summary: Create a new post
  *     requestBody:
  *       content:
  *         application/json:
  *           schema:
  *             type: object
  *             properties:
- *               email:
+ *               title:
  *                 type: string
- *               password:
+ *               content:
  *                 type: string
+ *               image:
+ *                 type: string
+ *               claimLimit:
+ *                 type: integer
+ *               category:
+ *                 type: string
+ *               expiresAt:
+ *                  type: string
+ *               authorId:
+ *                  type: integer
  *     responses:
  *       '200':
  *         description: A successful response
@@ -26,20 +57,21 @@ const router = express.Router();
  *       '500':
  *         description: Server error
  */
-router.post("/create", userController.createUser);
+router.post("/create", postController.createPost);
 
 /**
  * @swagger
- * /user/{id}:
+ * /post/{id}:
  *   get:
- *     description: Get user by ID
+ *     tags: [Posts]
+ *     summary: Get post by ID
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: string
  *         required: true
- *         description: User ID
+ *         description: Post ID
  *     responses:
  *       '200':
  *         description: A successful response
@@ -48,13 +80,14 @@ router.post("/create", userController.createUser);
  *       '500':
  *         description: Server error
  */
-router.get("/:id", userController.getUser);
+router.get("/:id", postController.getPost);
 
 /**
  * @swagger
- * /user:
+ * /post:
  *   get:
- *     description: Get all users
+ *     tags: [Posts]
+ *     summary: Get all posts
  *     responses:
  *       '200':
  *         description: A successful response
@@ -63,13 +96,14 @@ router.get("/:id", userController.getUser);
  *       '500':
  *         description: Server error
  */
-router.get("/", userController.getUsers);
+router.get("/", postController.getPosts);
 
 /**
  * @swagger
- * /user/{id}:
+ * /post/{id}:
  *   put:
- *     description: Update user by ID
+ *     tags: [Posts]
+ *     summary: Update post by ID
  *     requestBody:
  *       content:
  *         application/json:
@@ -86,7 +120,7 @@ router.get("/", userController.getUsers);
  *         schema:
  *           type: string
  *         required: true
- *         description: User ID
+ *         description: Post ID
  *     responses:
  *       '200':
  *         description: A successful response
@@ -95,20 +129,21 @@ router.get("/", userController.getUsers);
  *       '500':
  *         description: Server error
  */
-router.put("/:id", userController.updateUser);
+router.put("/:id", postController.updatePost);
 
 /**
  * @swagger
- * /user/{id}:
+ * /post/{id}:
  *   delete:
- *     description: Delete user by ID
+ *     tags: [Posts]
+ *     summary: Delete post by ID
  *     parameters:
  *       - in: path
  *         name: id
  *         schema:
  *           type: string
  *         required: true
- *         description: User ID
+ *         description: Post ID
  *     responses:
  *       '200':
  *         description: A successful response
@@ -117,6 +152,6 @@ router.put("/:id", userController.updateUser);
  *       '500':
  *         description: Server error
  */
-router.delete("/:id", userController.deleteUser);
+router.delete("/:id", postController.deletePost);
 
 export default router;

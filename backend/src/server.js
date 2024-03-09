@@ -19,6 +19,7 @@ import * as service from "./services/user.service.js";
 // routes import
 import helloRoutes from "./routes/hello.routes.js";
 import userRoutes from "./routes/user.routes.js";
+import postRoutes from "./routes/post.routes.js";
 
 // ---------------------------------
 
@@ -56,6 +57,8 @@ app.use(cookieParser());
 // routes usage
 app.use("/hello", helloRoutes);
 app.use("/user", userRoutes);
+app.use("/post", postRoutes);
+
 // ---------------------------------
 
 // const userData = { email: "adil5@gmail.com", password: "password5" };
