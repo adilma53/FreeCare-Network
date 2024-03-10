@@ -20,6 +20,7 @@ import * as service from "./services/user.service.js";
 import helloRoutes from "./routes/hello.routes.js";
 import userRoutes from "./routes/user.routes.js";
 import postRoutes from "./routes/post.routes.js";
+import imageUploadRoutes from "./routes/imageUpload.route.js";
 
 // ---------------------------------
 
@@ -58,6 +59,7 @@ app.use(cookieParser());
 app.use("/hello", helloRoutes);
 app.use("/user", userRoutes);
 app.use("/post", postRoutes);
+app.use("/image", imageUploadRoutes);
 
 // ---------------------------------
 
