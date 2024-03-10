@@ -1,5 +1,5 @@
 <script>
-	const category = ['Food', 'Clothes', 'Shelter', 'Health', 'Adoption'];
+	const category = ['Food', 'Clothes', 'Shelter', 'Health', 'Adoption', 'School', 'Funeral', 'Company', 'Widding'];
 	export const filter = () => {
 		category.forEach((cat) => {
 			console.log(cat);
