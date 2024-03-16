@@ -1,5 +1,6 @@
 import express from "express";
 import * as postController from "../controllers/post.controller.js";
+import { upload } from "../controllers/post.controller.js";
 
 const router = express.Router();
 // model Post {
@@ -57,7 +58,7 @@ const router = express.Router();
  *       '500':
  *         description: Server error
  */
-router.post("/create", postController.createPost);
+router.post("/create", upload.single("image"), postController.createPost);
 
 /**
  * @swagger

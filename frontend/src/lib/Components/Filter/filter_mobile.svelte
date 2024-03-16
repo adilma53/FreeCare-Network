@@ -1,19 +1,36 @@
 <script>
-	const category = ['Food', 'Clothes', 'Shelter', 'Health', 'Adoption', 'School', 'Funeral', 'Company', 'Wedding'];
-	export const filter = () => {
-		category.forEach((cat) => {
-			console.log(cat);
-		});
-	};
+	export let category;
+
+	const categories = [
+		'FOOD',
+		'Clothes',
+		'Shelter',
+		'Health',
+		'Adoption',
+		'School',
+		'Funeral',
+		'Company',
+		'Wedding'
+	];
+	// export const filter = () => {
+	// 	category.forEach((cat) => {
+	// 		console.log(cat);
+	// 	});
+	// };
+
+	function toggleCategory(cat) {
+		console.log('cat ---->', cat);
+		category = cat;
+	}
 </script>
 
-<div class="flex flex-row pt-5 overflow-x-scroll scroll-smooth">
-	{#each category as cat}
-		<div class="flex flex-auto justify-evenly rounded-lg bg-surface-400/20 mx-2">
-			<button on:click={filter} class=" px-2 py-1">
-				<input type="radio" class="hidden" id={cat} />
-				<label class="cursor-pointer" for={cat}>{cat}</label>
-			</button>
-		</div>
+<div class=" flex flex-row py-3 overflow-x-scroll scroll-smooth justify-start">
+	{#each categories as cat}
+		<button
+			type="button"
+			on:click={() => toggleCategory(cat)}
+			class="  flex flex-auto rounded-lg bg-surface-400/20 mx-2 px-2 py-1">
+			{cat}
+		</button>
 	{/each}
 </div>

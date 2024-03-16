@@ -34,7 +34,7 @@ model Post {
   claimLimit    Int
   currentClaims Int      @default(0)
   expiresAt     DateTime
-  category      Category
+  category      Category[]
   author        User     @relation(fields: [authorId], references: [id])
   authorId      Int
   claims        Claim[]
@@ -50,8 +50,14 @@ model Claim {
 }
 
 enum Category {
-  FOOD
-  THERAPY
-  DOCTOR
-  SHELTER
+  Food
+  Doctor
+  Hygiene
+  Financial
+  Clothing
+  Employment
+  Legal_Aid
+  Dental
+  Veterinary
+  MentalHealth
 }

@@ -5,6 +5,8 @@ import { v2 as cloudinary } from "cloudinary";
 
 export const upload = multer({ dest: "uploads/" });
 
+import { convertStringToInteger } from "../utils/convertStrToInt.js";
+
 // Configure Cloudinary
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -14,21 +16,27 @@ cloudinary.config({
 
 // create one
 export async function createPost(req, res) {
+  console.log("body---->", req.body);
+  console.log("TYPE OF CATEGORY---->", typeof JSON.parse(req.body.category));
+  console.log("PARSED CATEGORY---->", JSON.parse(req.body.category));
+
   try {
-    console.log("body ----->", req.body);
     let imageUrl;
     if (req.file) {
       const result = await cloudinary.uploader.upload(req.file.path);
       imageUrl = result.secure_url;
     }
 
-    const image = "foto";
+    let image = "this is image";
     const postData = {
       ...req.body,
       image: imageUrl || image,
       claimLimit: parseInt(req.body.claimLimit),
       authorId: parseInt(req.body.authorId),
+      category: JSON.parse(req.body.category),
     };
+
+    // call the helper function to convert string values to integers
 
     const post = await postService.createPost(postData);
     if (post) {
@@ -41,6 +49,7 @@ export async function createPost(req, res) {
     res.status(500).json({ errorMessage: err.message });
   }
 }
+
 // get one by id
 export async function getPost(req, res) {
   try {
