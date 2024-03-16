@@ -67,7 +67,10 @@ app.use("/image", imageUploadRoutes);
 // service.createUser(userData);
 
 const allUsers = await prisma.user.findMany();
+const allPosts = await prisma.post.findMany();
+
 console.dir(allUsers, { depth: null });
+console.dir(allPosts, { depth: null });
 //-----------------------
 
 app.listen(port, () => {
