@@ -19,16 +19,14 @@
 		'MentalHealth'
 	];
 
-	let testCAT = ['Food', 'Doctor'];
 	let chosenCategories = [];
 
 	function chooseCategory(cat) {
 		if (chosenCategories.includes(cat)) {
 			chosenCategories = chosenCategories.filter((item) => item !== cat);
-			//reactivity bs
-			chosenCategories = chosenCategories;
+			
 		} else {
-			chosenCategories.push(cat);
+			chosenCategories = [...chosenCategories,cat];
 		}
 
 		console.log('chosenCategories--->', chosenCategories);
