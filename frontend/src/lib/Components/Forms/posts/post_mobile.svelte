@@ -25,6 +25,8 @@
 	function chooseCategory(cat) {
 		if (chosenCategories.includes(cat)) {
 			chosenCategories = chosenCategories.filter((item) => item !== cat);
+			//reactivity bs
+			chosenCategories = chosenCategories;
 		} else {
 			chosenCategories.push(cat);
 		}
