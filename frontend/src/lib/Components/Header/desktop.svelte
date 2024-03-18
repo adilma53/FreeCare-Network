@@ -57,8 +57,8 @@
 			</li>
 		</ul>
 		<!-- split the nav-->
-		<div class=" pt-4 mt-4 space-y-2 border-t-[0.4px] border-surface-700 dark:border-surface-400">
-			<ul class="font-meduim ">
+		<div class="pt-4 mt-4 space-y-2 border-t-[0.4px] border-surface-700 dark:border-surface-400">
+			<ul class="font-semibold  fixed bottom-2">
 				<li>
 					<a
 						href="/auth/login"
@@ -90,7 +90,7 @@
 						<span class="ms-3">Log In</span>
 					</a>
 				</li>
-				<li class="pt-3">
+				<li class="py-3 px-3"> 
 					<LightSwitch />
 				</li>
 			</ul>

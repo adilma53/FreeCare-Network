@@ -13,7 +13,7 @@
 				<input
 					type="email"
 					id="email"
-					class="shadow-sm rounded-md w-full px-3 py-2 text-black border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+					class="shadow-sm rounded-md w-full px-3 py-2 text-black border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-primary-500"
 					placeholder="your@email.com"
 					required
 				/>
@@ -27,7 +27,7 @@
 				<input
 					type="password"
 					id="password"
-					class="shadow-sm rounded-md w-full px-3 py-2 border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
+					class="shadow-sm rounded-md w-full px-3 py-2 text-black border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-primary-500"
 					placeholder="Enter your password"
 					required
 				/>

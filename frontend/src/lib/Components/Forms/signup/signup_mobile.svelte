@@ -6,13 +6,13 @@
 		<form action="?/singup">
 			<div class="mb-4">
 				<label
-					for="email"
+					for="fullname"
 					class="block text-base font-medium text-surface-700 dark:text-surface-300 mb-3"
 					>Full name</label
 				>
 				<input
 					type="name"
-					id="full_name"
+					name="full_name"
 					class="shadow-sm rounded-md w-full px-3 py-2 text-black border border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500"
 					placeholder="Jack James"
 					required
