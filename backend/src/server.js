@@ -61,6 +61,10 @@ app.use("/user", userRoutes);
 app.use("/post", postRoutes);
 app.use("/image", imageUploadRoutes);
 
+app.get("/", function (req, res) {
+  res.send("hello adil");
+});
+
 // ---------------------------------
 
 // const userData = { email: "adil5@gmail.com", password: "password5" };
@@ -77,4 +81,4 @@ app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
 
-export { prisma , app};
+export { prisma, app };
