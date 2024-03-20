@@ -1,5 +1,5 @@
 <script>
-  import { Post } from "$lib";
+	import { Post } from '$lib';
 </script>
 
 <Post />

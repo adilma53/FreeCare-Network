@@ -24,9 +24,8 @@
 	function chooseCategory(cat) {
 		if (chosenCategories.includes(cat)) {
 			chosenCategories = chosenCategories.filter((item) => item !== cat);
-			
 		} else {
-			chosenCategories = [...chosenCategories,cat];
+			chosenCategories = [...chosenCategories, cat];
 		}
 
 		console.log('chosenCategories--->', chosenCategories);

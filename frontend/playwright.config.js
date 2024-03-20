@@ -3,19 +3,19 @@ import { devices } from '@playwright/test';
 const config = {
 	projects: [
 		{
-		  name: 'chromium',
-		  use: {
-			...devices['Desktop FirFox'],
-			isMobile: true,
-		  },
+			name: 'chromium',
+			use: {
+				...devices['Desktop FirFox'],
+				isMobile: true
+			}
 		},
 		{
-		  name: 'Mobile Safari',
-		  use: {
-			...devices['iPhone 13 Pro Max'],
-		  },
-		},
-	  ],
+			name: 'Mobile Safari',
+			use: {
+				...devices['iPhone 13 Pro Max']
+			}
+		}
+	],
 	webServer: {
 		command: 'npm run build && npm run preview',
 		port: 4173

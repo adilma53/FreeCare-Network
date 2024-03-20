@@ -7,6 +7,17 @@
 
 	let imgsrc =
 		'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
+const post = {
+  id: 1,
+  title: 'string',
+  content: 'string',
+  image: 'this is image',
+  claimLimit: 0,
+  currentClaims: 0,
+  expiresAt: '2024-03-16T22:23:15.742Z',
+  category: [ 'Food' ],
+  authorId: 1
+};
 </script>
 
 <section>
@@ -15,7 +26,7 @@
 		<!-- post card start here -->
 		<!-- post owner name and post date -->
 		<div class="px-1 flex my-3 items-center">
-			<img class="rounded-full size-12 ring ring-blue-500 dark:ring-blue-300" src={imgsrc} />
+			<img class="rounded-full size-12 ring ring-blue-500 dark:ring-blue-300" src={imgsrc} alt="" />
 			<div class=" mx-3">
 				<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-300">
 					{'Name Here'}

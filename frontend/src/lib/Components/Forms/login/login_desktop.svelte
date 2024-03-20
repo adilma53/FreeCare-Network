@@ -1,6 +1,6 @@
 <section class="p-24 flex items-center justify-center w-full">
 	<div
-		class="w-full bg-white rounded-lg shadow-lg shadow-primary-700 dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-surface-800 dark:border-surface-400 ">
+		class="w-full bg-white rounded-lg shadow-lg shadow-primary-700 dark:border md:mt-0 sm:max-w-md xl:p-0 dark:bg-surface-800 dark:border-surface-400">
 		<div class="p-6 space-y-4 md:space-y-6 sm:p-8">
 			<h1
 				class="text-xl font-bold leading-tight tracking-tight text-surface-900 md:text-2xl dark:text-surface-300">
@@ -8,7 +8,9 @@
 			</h1>
 			<form class="space-y-4 md:space-y-6" action="?/login">
 				<div>
-					<label for="email" class="block text-base font-medium text-surface-700 dark:text-surface-300 mb-3"
+					<label
+						for="email"
+						class="block text-base font-medium text-surface-700 dark:text-surface-300 mb-3"
 						>Your email</label>
 					<input
 						type="email"
@@ -18,7 +20,9 @@
 						required />
 				</div>
 				<div>
-					<label for="password" class="block text-base font-medium text-surface-700 dark:text-surface-300 mb-3"
+					<label
+						for="password"
+						class="block text-base font-medium text-surface-700 dark:text-surface-300 mb-3"
 						>Password</label>
 					<input
 						type="password"
