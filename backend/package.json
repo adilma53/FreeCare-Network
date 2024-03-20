@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "prisma db push && nodemon ./src/server",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "vervel-build": "hello vercel"
+    "vercel-build": "echo hello"
   },
   "author": "",
   "license": "ISC",
