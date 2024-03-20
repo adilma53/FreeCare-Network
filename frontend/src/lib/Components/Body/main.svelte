@@ -4,18 +4,8 @@
 
 	export let posts;
 
-	console.log('posts in main---->',posts);
 </script>
 
-<!-- <div class="md:hidden">
-	{#await posts then posts}
-	  {#each posts as post}
-		<BodyMobile {post}/>
-	  {/each}
-	{:catch error}
-	  <p>Error: {error.message}</p>
-	{/await}
-  </div> -->
 
 
 
