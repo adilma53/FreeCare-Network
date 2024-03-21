@@ -7,6 +7,8 @@
 
 </script>
 
+
+
 <main>
 	<Filter />
 	<Body {posts}/>

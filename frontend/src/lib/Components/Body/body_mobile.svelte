@@ -2,12 +2,31 @@
 	import Food from '$lib/images/food.jpg';
 	import { Avatar, Badge, Progressbar } from 'flowbite-svelte';
 	import { ClockSolid } from 'flowbite-svelte-icons';
+	import { onMount } from 'svelte';
 
 	let progress;
 
-	let imgsrc =
+	let avatar =
 		'https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D';
 
+	export let post;
+
+	// onMount(async () => {
+	// 	async function fetchPosts() {
+	// 		try {
+	// 			const response = await fetch('http://localhost:3000/post');
+	// 			const posts = await response.json();
+	// 			posta = posts[0];
+	// 			console.log('single post ---->', posta);
+	// 		} catch (error) {
+	// 			console.log('error while fetching', error);
+	// 		}
+	// 	}
+
+	// 	await fetchPosts();
+	// });
+
+	console.log('post------->', post);
 </script>
 
 <section>
@@ -16,14 +35,16 @@
 		<!-- post card start here -->
 		<!-- post owner name and post date -->
 		<div class="px-1 flex my-3 items-center">
-			<img class="rounded-full size-12 ring ring-blue-500 dark:ring-blue-300" src={imgsrc} alt="" />
+			<img class="rounded-full size-12 ring ring-blue-500 dark:ring-blue-300" src={avatar} alt="" />
 			<div class=" mx-3">
 				<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-300">
-					{'Name Here'}
+					<!-- {'@' + post.author.username} -->
+					ss
 				</h1>
 				<Badge class="h-4 text-xs text-gray-600 dark:text-gray-400" color="dark" border>
 					<ClockSolid class="w-2.5 h-2.5 me-1.5" />
-					22/22/2022
+					<!-- {post.createdAt} -->
+					dd
 				</Badge>
 			</div>
 		</div>

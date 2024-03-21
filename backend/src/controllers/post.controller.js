@@ -1,11 +1,11 @@
-import * as postService from "../services/post.service.js";
-import "dotenv/config";
-import multer from "multer";
-import { v2 as cloudinary } from "cloudinary";
+import * as postService from '../services/post.service.js';
+import 'dotenv/config';
+import multer from 'multer';
+import { v2 as cloudinary } from 'cloudinary';
 
-export const upload = multer({ dest: "uploads/" });
+export const upload = multer({ dest: 'uploads/' });
 
-import { convertStringToInteger } from "../utils/convertStrToInt.js";
+import { convertStringToInteger } from '../utils/convertStrToInt.js';
 
 // Configure Cloudinary
 cloudinary.config({
@@ -16,10 +16,6 @@ cloudinary.config({
 
 // create one
 export async function createPost(req, res) {
-  console.log("body---->", req.body);
-  console.log("TYPE OF CATEGORY---->", typeof JSON.parse(req.body.category));
-  console.log("PARSED CATEGORY---->", JSON.parse(req.body.category));
-
   try {
     let imageUrl;
     if (req.file) {
@@ -27,13 +23,14 @@ export async function createPost(req, res) {
       imageUrl = result.secure_url;
     }
 
-    let image = "this is image";
+    let image = 'this is image';
     const postData = {
       ...req.body,
       image: imageUrl || image,
       claimLimit: parseInt(req.body.claimLimit),
-      authorId: parseInt(req.body.authorId),
       category: JSON.parse(req.body.category),
+      // if the user did net setup date make it null
+      expiresAt: req.body.expiresAt == 'null' ? null : req.body.expiresAt,
     };
 
     // call the helper function to convert string values to integers
@@ -45,7 +42,6 @@ export async function createPost(req, res) {
       res.status(400).send();
     }
   } catch (err) {
-    console.log({ errorMessage: err.message });
     res.status(500).json({ errorMessage: err.message });
   }
 }

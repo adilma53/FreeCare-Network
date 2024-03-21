@@ -4,14 +4,12 @@
 
 	export let posts;
 
+	console.log('main posts ---->', posts);
 </script>
-
-
-
 
 <div class="md:hidden">
 	{#each posts as post}
-		<BodyMobile />
+		<BodyMobile {post} />
 	{/each}
 </div>
 

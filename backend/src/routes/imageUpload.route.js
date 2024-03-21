@@ -1,5 +1,5 @@
-import express from "express";
-import { upload, uploadImage } from "../controllers/imageUpload.controller.js";
+import express from 'express';
+import { upload, uploadImage } from '../controllers/imageUpload.controller.js';
 
 const router = express.Router();
 
@@ -53,6 +53,6 @@ const router = express.Router();
  *                   type: string
  *                   description: The error message
  */
-router.post("/upload", upload.single("image"), uploadImage);
+router.post('/upload', upload.single('image'), uploadImage);
 
 export default router;

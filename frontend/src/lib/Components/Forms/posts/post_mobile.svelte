@@ -2,7 +2,7 @@
 	import { Filter } from '$lib';
 	import axios from 'axios';
 
-	let authorId = 1;
+	let authorId = 'a3c7e124-75a4-405f-9f59-fd56644e51f2';
 	let form;
 
 	let category;
@@ -27,18 +27,20 @@
 		} else {
 			chosenCategories = [...chosenCategories, cat];
 		}
-
-		console.log('chosenCategories--->', chosenCategories);
 	}
 
 	//  still not working
 	async function handleSubmit() {
-		console.log('category ===> ', category);
-		console.log('authorId ===> ', authorId);
-
 		let formData = new FormData(form);
 
-		formData.set('expiresAt', new Date(form.expiresAt.value).toISOString());
+		if (form.expiresAt.value) {
+			console.log('form.expiresAt.value----->', form.expiresAt.value);
+			formData.set('expiresAt', new Date(form.expiresAt.value).toISOString());
+		} else {
+			console.log('form.expiresAt.value NUll----->', form.expiresAt.value);
+
+			formData.set('expiresAt', null);
+		}
 
 		formData.set('authorId', authorId);
 
@@ -125,7 +127,6 @@
 				class="input rounded-md w-[95%] border border-surface-500 dark:border-surface-200"
 				placeholder="Expiration Date"
 				type="date"
-				required
 				name="expiresAt" />
 		</label>
 		<!-- Create button -->
