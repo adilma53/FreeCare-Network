@@ -11,22 +11,8 @@
 
 	export let post;
 
-	// onMount(async () => {
-	// 	async function fetchPosts() {
-	// 		try {
-	// 			const response = await fetch('http://localhost:3000/post');
-	// 			const posts = await response.json();
-	// 			posta = posts[0];
-	// 			console.log('single post ---->', posta);
-	// 		} catch (error) {
-	// 			console.log('error while fetching', error);
-	// 		}
-	// 	}
-
-	// 	await fetchPosts();
-	// });
-
-	console.log('post------->', post);
+	console.log('post username------->', post.author.username);
+	console.log('post image------->', post.image);
 </script>
 
 <section>
@@ -38,13 +24,11 @@
 			<img class="rounded-full size-12 ring ring-blue-500 dark:ring-blue-300" src={avatar} alt="" />
 			<div class=" mx-3">
 				<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-300">
-					<!-- {'@' + post.author.username} -->
-					ss
+					{'@' + post.author.username}
 				</h1>
 				<Badge class="h-4 text-xs text-gray-600 dark:text-gray-400" color="dark" border>
 					<ClockSolid class="w-2.5 h-2.5 me-1.5" />
-					<!-- {post.createdAt} -->
-					dd
+					{post.createdAt}
 				</Badge>
 			</div>
 		</div>

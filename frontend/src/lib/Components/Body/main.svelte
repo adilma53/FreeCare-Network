@@ -5,6 +5,7 @@
 	export let posts;
 
 	console.log('main posts ---->', posts);
+	console.log('main posts 2 ---->', posts[1]);
 </script>
 
 <div class="md:hidden">
@@ -13,9 +14,9 @@
 	{/each}
 </div>
 
-<div class="md:hidden">
+<!-- <div class="md:hidden">
 	<BodyMobile />
-</div>
+</div> -->
 <div class="hidden md:block">
 	<BodyDesktop />
 </div>

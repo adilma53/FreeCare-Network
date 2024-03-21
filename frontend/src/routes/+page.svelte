@@ -2,15 +2,10 @@
 	import { Filter, Body } from '$lib';
 
 	export let data;
-	const {posts} = data;
-
-
+	const { posts } = data;
 </script>
-
-
 
 <main>
 	<Filter />
-	<Body {posts}/>
-
+	<Body {posts} />
 </main>
