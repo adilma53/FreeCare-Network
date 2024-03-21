@@ -11,8 +11,21 @@
 
 	export let post;
 
-	console.log('post username------->', post.author.username);
-	console.log('post image------->', post.image);
+	// onMount(async () => {
+	// 	async function fetchPosts() {
+	// 		try {
+	// 			const response = await fetch('http://localhost:3000/post');
+	// 			const posts = await response.json();
+	// 			posta = posts[0];
+	// 			console.log('single post ---->', posta);
+	// 		} catch (error) {
+	// 			console.log('error while fetching', error);
+	// 		}
+	// 	}
+
+	// 	await fetchPosts();
+	// });
+	console.log('post------->', post);
 </script>
 
 <section>
@@ -35,14 +48,14 @@
 
 		<!-- post image's -->
 		<div class="">
-			<img class="object-cover object-center w-full h-64 rounded-lg" src={Food} alt="" />
+			<img class="object-cover object-center w-full h-64 rounded-lg" src={post.image} alt="" />
 		</div>
 
 		<div class="mt-5">
-			<h1 class="mt-4 text-xl font-bold text-gray-800 dark:text-white">Free meals</h1>
+			<h1 class="mt-4 text-xl font-bold text-gray-800 dark:text-white">{post.title}</h1>
 
 			<p class="mt-2 text-gray-500 dark:text-gray-400">
-				I have 10 meal vouchers for a local restaurant. DM me if you need it.
+				{post.content}
 			</p>
 
 			<div class="flex justify-between py-4">
