@@ -16,9 +16,10 @@ datasource db {
 
 
 model User {
-  id           Int     @id @default(autoincrement())
+  id           String     @id @default(uuid())
   email        String  @unique
   password     String
+  username     String
   name         String?
   bio          String?
   occupation   String?
@@ -27,25 +28,27 @@ model User {
 }
 
 model Post {
-  id            Int      @id @default(autoincrement())
+  id            String      @id @default(uuid())
   title         String
   content       String
   image         String
   claimLimit    Int
   currentClaims Int      @default(0)
-  expiresAt     DateTime
+  expiresAt     DateTime?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
   category      Category[]
   author        User     @relation(fields: [authorId], references: [id])
-  authorId      Int
+  authorId      String
   claims        Claim[]
 }
 
 model Claim {
-  id          Int      @id @default(autoincrement())
+  id          String      @id @default(uuid())
   claimedBy   User     @relation(fields: [claimedById], references: [id])
-  claimedById Int
+  claimedById String
   post        Post     @relation(fields: [postId], references: [id])
-  postId      Int
+  postId      String
   claimedAt   DateTime @default(now())
 }
 

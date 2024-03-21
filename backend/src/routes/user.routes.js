@@ -1,5 +1,5 @@
-import express from "express";
-import * as userController from "../controllers/user.controller.js";
+import express from 'express';
+import * as userController from '../controllers/user.controller.js';
 
 const router = express.Router();
 
@@ -27,7 +27,7 @@ const router = express.Router();
  *       '500':
  *         description: Server error
  */
-router.post("/create", userController.createUser);
+router.post('/create', userController.createUser);
 
 /**
  * @swagger
@@ -50,7 +50,7 @@ router.post("/create", userController.createUser);
  *       '500':
  *         description: Server error
  */
-router.get("/:id", userController.getUser);
+router.get('/:id', userController.getUser);
 
 /**
  * @swagger
@@ -66,7 +66,7 @@ router.get("/:id", userController.getUser);
  *       '500':
  *         description: Server error
  */
-router.get("/", userController.getUsers);
+router.get('/', userController.getUsers);
 
 /**
  * @swagger
@@ -99,7 +99,7 @@ router.get("/", userController.getUsers);
  *       '500':
  *         description: Server error
  */
-router.put("/:id", userController.updateUser);
+router.put('/:id', userController.updateUser);
 
 /**
  * @swagger
@@ -122,6 +122,6 @@ router.put("/:id", userController.updateUser);
  *       '500':
  *         description: Server error
  */
-router.delete("/:id", userController.deleteUser);
+router.delete('/:id', userController.deleteUser);
 
 export default router;

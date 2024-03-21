@@ -1,28 +1,8 @@
-import express from "express";
-import * as postController from "../controllers/post.controller.js";
-import { upload } from "../controllers/post.controller.js";
+import express from 'express';
+import * as postController from '../controllers/post.controller.js';
+import { upload } from '../controllers/post.controller.js';
 
 const router = express.Router();
-// model Post {
-//     id            Int      @id @default(autoincrement())
-//     title         String
-//     content       String
-//     image         String
-//     claimLimit    Int
-//     currentClaims Int      @default(0)
-//     expiresAt     DateTime
-//     category      Category
-//     author        User     @relation(fields: [authorId], references: [id])
-//     authorId      Int
-//     claims        Claim[]
-//   }
-
-// enum Category {
-//     FOOD
-//     THERAPY
-//     DOCTOR
-//     SHELTER
-//   }
 
 /**
  * @swagger
@@ -49,7 +29,7 @@ const router = express.Router();
  *               expiresAt:
  *                  type: string
  *               authorId:
- *                  type: integer
+ *                  type: string
  *     responses:
  *       '200':
  *         description: A successful response
@@ -58,7 +38,7 @@ const router = express.Router();
  *       '500':
  *         description: Server error
  */
-router.post("/create", upload.single("image"), postController.createPost);
+router.post('/create', upload.single('image'), postController.createPost);
 
 /**
  * @swagger
@@ -81,7 +61,7 @@ router.post("/create", upload.single("image"), postController.createPost);
  *       '500':
  *         description: Server error
  */
-router.get("/:id", postController.getPost);
+router.get('/:id', postController.getPost);
 
 /**
  * @swagger
@@ -97,7 +77,7 @@ router.get("/:id", postController.getPost);
  *       '500':
  *         description: Server error
  */
-router.get("/", postController.getPosts);
+router.get('/', postController.getPosts);
 
 /**
  * @swagger
@@ -130,7 +110,7 @@ router.get("/", postController.getPosts);
  *       '500':
  *         description: Server error
  */
-router.put("/:id", postController.updatePost);
+router.put('/:id', postController.updatePost);
 
 /**
  * @swagger
@@ -153,6 +133,6 @@ router.put("/:id", postController.updatePost);
  *       '500':
  *         description: Server error
  */
-router.delete("/:id", postController.deletePost);
+router.delete('/:id', postController.deletePost);
 
 export default router;

@@ -1,4 +1,4 @@
-import { prisma } from "../server.js";
+import { prisma } from '../server.js';
 
 // Function to create a post
 export async function createPost(postData) {
@@ -14,7 +14,15 @@ export async function getPostById(postId) {
 }
 // get all posts
 export async function getAllPosts() {
-  const posts = await prisma.post.findMany();
+  const posts = await prisma.post.findMany({
+    include: {
+      author: {
+        select: {
+          username: true,
+        },
+      },
+    },
+  });
 
   return posts;
 }
@@ -32,4 +40,24 @@ export async function deletePostById(postId) {
   const post = await prisma.post.delete({ where: { id: postId } });
 
   return post;
+}
+
+// get all posts by category
+export async function getAllPostsByCategory() {
+  const posts = await prisma.post.findMany({
+    where: {
+      category: {
+        contains: category,
+      },
+    },
+    include: {
+      author: {
+        select: {
+          username: true,
+        },
+      },
+    },
+  });
+
+  return posts;
 }

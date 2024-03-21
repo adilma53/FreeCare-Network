@@ -1,8 +1,12 @@
-import * as userService from "../services/user.service.js";
-
+import * as userService from '../services/user.service.js';
+import * as controllerUtil from './controllers.utils.js';
 // create one ✅
 export async function createUser(req, res) {
   try {
+    // extract username from email (its the part before @)
+    const username = controllerUtil.regexUser(req.body.email)[0];
+    req.body = { ...req.body, username };
+
     const user = await userService.createUser(req.body);
     if (user) {
       res.status(200).json(user);

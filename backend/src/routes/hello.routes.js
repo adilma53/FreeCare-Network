@@ -1,4 +1,4 @@
-import express from "express";
+import express from 'express';
 
 const router = express.Router();
 
@@ -13,11 +13,11 @@ const router = express.Router();
  *       '200':
  *         description: A successful response
  */
-router.get("/", (req, res) => {
-  res.send("Hello World!");
+router.get('/', (req, res) => {
+  res.send('Hello World!');
 });
 
-router.get("/:id", (req, res) => {
+router.get('/:id', (req, res) => {
   res.send(`hello: ${req.params.id}`);
 });
 

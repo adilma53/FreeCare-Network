@@ -1,11 +1,12 @@
-import * as postService from "../services/post.service.js";
-import "dotenv/config";
-import multer from "multer";
-import { v2 as cloudinary } from "cloudinary";
+import * as postService from '../services/post.service.js';
+import 'dotenv/config';
+import multer from 'multer';
+import { v2 as cloudinary } from 'cloudinary';
+import fs from 'fs';
 
-export const upload = multer({ dest: "uploads/" });
+export const upload = multer({ dest: 'uploads/' });
 
-import { convertStringToInteger } from "../utils/convertStrToInt.js";
+// import { convertStringToInteger } from '../utils/convertStrToInt.js';
 
 // Configure Cloudinary
 cloudinary.config({
@@ -16,27 +17,26 @@ cloudinary.config({
 
 // create one
 export async function createPost(req, res) {
-  console.log("body---->", req.body);
-  console.log("TYPE OF CATEGORY---->", typeof JSON.parse(req.body.category));
-  console.log("PARSED CATEGORY---->", JSON.parse(req.body.category));
-
   try {
+    console.log('🚀 ~ createPost ~ req.body:', req.body);
+
     let imageUrl;
     if (req.file) {
       const result = await cloudinary.uploader.upload(req.file.path);
       imageUrl = result.secure_url;
     }
 
-    let image = "this is image";
+    fs.unlinkSync(req.file.path);
+
+    let image = 'this is image';
     const postData = {
       ...req.body,
       image: imageUrl || image,
       claimLimit: parseInt(req.body.claimLimit),
-      authorId: parseInt(req.body.authorId),
       category: JSON.parse(req.body.category),
+      // if the user did net setup date make it null
+      expiresAt: req.body.expiresAt == 'null' ? null : req.body.expiresAt,
     };
-
-    // call the helper function to convert string values to integers
 
     const post = await postService.createPost(postData);
     if (post) {
@@ -46,7 +46,7 @@ export async function createPost(req, res) {
     }
   } catch (err) {
     console.log({ errorMessage: err.message });
-    res.status(500).json({ errorMessage: err.message });
+    res.status(501).json({ errorMessage: err.message });
   }
 }
 

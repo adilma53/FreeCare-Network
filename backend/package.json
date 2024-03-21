@@ -5,8 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node ./src/server.js",
-    "dev": "prisma db push && nodemon ./src/server.js",
+    "start": "node ./src/server",
+    "dev": "prisma db push && nodemon ./src/server",
     "test": "echo \"Error: no test specified\" && exit 1",
     "vercel-build": "echo hello"
   },
