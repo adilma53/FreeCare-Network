@@ -25,7 +25,6 @@
 
 	// 	await fetchPosts();
 	// });
-
 	console.log('post------->', post);
 </script>
 
@@ -38,27 +37,25 @@
 			<img class="rounded-full size-12 ring ring-blue-500 dark:ring-blue-300" src={avatar} alt="" />
 			<div class=" mx-3">
 				<h1 class="text-xl font-semibold text-gray-800 dark:text-gray-300">
-					<!-- {'@' + post.author.username} -->
-					ss
+					{'@' + post.author.username}
 				</h1>
 				<Badge class="h-4 text-xs text-gray-600 dark:text-gray-400" color="dark" border>
 					<ClockSolid class="w-2.5 h-2.5 me-1.5" />
-					<!-- {post.createdAt} -->
-					dd
+					{post.createdAt}
 				</Badge>
 			</div>
 		</div>
 
 		<!-- post image's -->
 		<div class="">
-			<img class="object-cover object-center w-full h-64 rounded-lg" src={Food} alt="" />
+			<img class="object-cover object-center w-full h-64 rounded-lg" src={post.image} alt="" />
 		</div>
 
 		<div class="mt-5">
-			<h1 class="mt-4 text-xl font-bold text-gray-800 dark:text-white">Free meals</h1>
+			<h1 class="mt-4 text-xl font-bold text-gray-800 dark:text-white">{post.title}</h1>
 
 			<p class="mt-2 text-gray-500 dark:text-gray-400">
-				I have 10 meal vouchers for a local restaurant. DM me if you need it.
+				{post.content}
 			</p>
 
 			<div class="flex justify-between py-4">
