@@ -2,7 +2,7 @@
 	import { Filter } from '$lib';
 	import axios from 'axios';
 
-	let authorId = 'a3c7e124-75a4-405f-9f59-fd56644e51f2';
+	let authorId = 'e39f3c31-f20a-4790-8412-5f8ac9578253';
 	let form;
 
 	let category;

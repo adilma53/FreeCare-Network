@@ -2,10 +2,11 @@ import * as postService from '../services/post.service.js';
 import 'dotenv/config';
 import multer from 'multer';
 import { v2 as cloudinary } from 'cloudinary';
+import fs from 'fs';
 
 export const upload = multer({ dest: 'uploads/' });
 
-import { convertStringToInteger } from '../utils/convertStrToInt.js';
+// import { convertStringToInteger } from '../utils/convertStrToInt.js';
 
 // Configure Cloudinary
 cloudinary.config({
@@ -17,11 +18,15 @@ cloudinary.config({
 // create one
 export async function createPost(req, res) {
   try {
+    console.log('🚀 ~ createPost ~ req.body:', req.body);
+
     let imageUrl;
     if (req.file) {
       const result = await cloudinary.uploader.upload(req.file.path);
       imageUrl = result.secure_url;
     }
+
+    fs.unlinkSync(req.file.path);
 
     let image = 'this is image';
     const postData = {
@@ -33,8 +38,6 @@ export async function createPost(req, res) {
       expiresAt: req.body.expiresAt == 'null' ? null : req.body.expiresAt,
     };
 
-    // call the helper function to convert string values to integers
-
     const post = await postService.createPost(postData);
     if (post) {
       res.status(200).json(post);
@@ -42,7 +45,8 @@ export async function createPost(req, res) {
       res.status(400).send();
     }
   } catch (err) {
-    res.status(500).json({ errorMessage: err.message });
+    console.log({ errorMessage: err.message });
+    res.status(501).json({ errorMessage: err.message });
   }
 }
 
