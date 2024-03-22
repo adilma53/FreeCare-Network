@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-// import { Icon } from "@iconify/react";
+import { Icon } from "@iconify/react";
 
 import { Switch } from "@nextui-org/react";
 import { MdSunny } from "react-icons/md";
