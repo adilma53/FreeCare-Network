@@ -1,8 +1,20 @@
+"use client";
+import { useRouter } from "next/navigation";
 export function BottomNav() {
+  const router = useRouter()
+  const home = async () => {
+    router.push("/");
+  };
+  const post = async () => {
+    router.push("/post");
+  };
+  const profile = async () => {
+    router.push("/auth/login");
+  };
   return (
     <div className="fixed bottom-0 left-0 z-50 w-full h-16 bg-gray-50 border-t border-gray-400 dark:bg-neutral-800 dark:border-gray-600">
       <div className="grid h-full max-w-lg grid-cols-3 mx-auto font-medium">
-        <button className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 dark:hover:bg-neutral-700 group">
+        <button onClick={home} className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 dark:hover:bg-neutral-700 group">
           <svg
             className="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
             aria-hidden="true"
@@ -16,7 +28,7 @@ export function BottomNav() {
             Home
           </span>
         </button>
-        <button className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 dark:hover:bg-neutral-700 group">
+        <button onClick={post} className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 dark:hover:bg-neutral-700 group">
           <svg
             className="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
             aria-hidden="true"
@@ -34,7 +46,10 @@ export function BottomNav() {
             Post
           </span>
         </button>
-        <button className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 dark:hover:bg-neutral-700 group">
+        <button
+          onClick={profile}
+          className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 dark:hover:bg-neutral-700 group"
+        >
           <svg
             className="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
             aria-hidden="true"

@@ -7,9 +7,7 @@ import { Header } from "@/components/Header/main_header";
 export default function Home() {
   return (
     <>
-      <Header />
       <Hello />
-      <Footer />
     </>
   );
 }
