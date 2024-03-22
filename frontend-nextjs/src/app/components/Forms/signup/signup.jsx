@@ -39,7 +39,7 @@ export function Sign_up() {
   }
   return (
     <>
-      <div className="flex justify-center items-center h-screen ">
+      <div className="flex justify-center items-center  pt-5 ">
         <div className="rounded-lg border bg-card text-card-foreground shadow-sm w-full max-w-md mx-4" >
           <div className="flex flex-col space-y-1.5 p-6">
             <h3 className="font-semibold whitespace-nowrap tracking-tight text-2xl text-center">Sing up to FreeCareNet</h3>
