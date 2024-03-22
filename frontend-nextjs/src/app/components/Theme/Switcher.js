@@ -1,7 +1,12 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useTheme } from "next-themes";
-import { Icon } from '@iconify/react';
+import { Icon } from "@iconify/react";
+
+import { Switch } from "@nextui-org/react";
+import { MdSunny } from "react-icons/md";
+import { FaRegMoon } from "react-icons/fa";
+
 export const Switcher = () => {
   const [mounted, setMounted] = useState(false);
   const { theme, setTheme } = useTheme();
@@ -14,14 +19,25 @@ export const Switcher = () => {
     return null;
   }
 
+  // return (
+  //   <div>
+  //     <button onClick={() => setTheme("light")}>
+  //       <Icon icon="tdesign:mode-light" className="w-7 h-7" />
+  //     </button>
+  //     <button onClick={() => setTheme("dark")}>
+  //       <Icon icon="iconamoon:mode-dark-light" className="w-7 h-7" />
+  //     </button>
+  //   </div>
+  // );
+
   return (
-    <div>
-      <button onClick={() => setTheme("light")}>
-        <Icon icon="tdesign:mode-light" className="w-7 h-7" />
-      </button>
-      <button onClick={() => setTheme("dark")}>
-        <Icon icon="iconamoon:mode-dark-light" className="w-7 h-7" />
-      </button>
-    </div>
+    <Switch
+      onClick={() => setTheme(theme == "light" ? "dark" : "light")}
+      defaultSelected
+      size="lg"
+      color="primary"
+      startContent={<MdSunny />}
+      endContent={<FaRegMoon />}
+    />
   );
 };
