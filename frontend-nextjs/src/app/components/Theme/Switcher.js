@@ -34,7 +34,7 @@ export const Switcher = () => {
     <Switch
       onClick={() => setTheme(theme == "light" ? "dark" : "light")}
       defaultSelected
-      size="lg"
+      size="md"
       color="primary"
       startContent={<MdSunny />}
       endContent={<FaRegMoon />}
