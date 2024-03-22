@@ -10,7 +10,7 @@ export function Mheader() {
           </div>
         </div>
         <div className="py-6">
-    <Switcher />
+          <Switcher />
         </div>
       </div>
     </header>
