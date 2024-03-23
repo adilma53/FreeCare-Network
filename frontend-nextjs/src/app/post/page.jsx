@@ -1,7 +1,7 @@
-import { Post_form } from "@/components/Forms/postform/post_form";
+"use client";
+
+import { MainPostForm } from "@/components/Forms/postform/MainPostForm";
 
 export default function Post() {
-  return (
-    <Post_form />
-  );
+  return <MainPostForm />;
 }

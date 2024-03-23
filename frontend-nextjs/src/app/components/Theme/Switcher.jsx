@@ -10,6 +10,7 @@ export const Switcher = () => {
 
   useEffect(() => {
     setMounted(true);
+    setTheme("system");
   }, []);
 
   if (!mounted) {
@@ -29,7 +30,6 @@ export const Switcher = () => {
           <BiSun className={className} />
         )
       }
-    >
-    </Switch>
+    ></Switch>
   );
 };
