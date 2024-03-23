@@ -20,7 +20,6 @@ export function BodyMobile() {
     const fetchPosts = async () => {
       try {
         const posts = await ApiPosts();
-        console.log("post from API ---> ", posts);
         setPost(posts);
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -28,9 +27,6 @@ export function BodyMobile() {
     };
     fetchPosts();
   }, [post]);
-
-
-
 
 
   const [isClient, setIsClient] = useState(false);
@@ -44,6 +40,8 @@ export function BodyMobile() {
       {post && post.length > 0 && (
         <div className="flex items-center justify-center p-3">
           <Card
+            isPressable
+            onPress={() => {console.log("into the post")}}
             className="px-auto py-auto"
           >
             <CardBody className="space-y-5">
