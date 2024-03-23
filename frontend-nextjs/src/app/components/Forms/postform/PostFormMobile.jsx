@@ -32,6 +32,7 @@ export function PostFormMobile() {
     event.preventDefault();
     const formData = new FormData(form);
 
+    formData.append("image", formRef.current.image.files[0]);
     if (form.expiresAt.value) {
       formData.set("expiresAt", new Date(form.expiresAt.value).toISOString());
     } else {
@@ -45,7 +46,7 @@ export function PostFormMobile() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/post/create",
+        "http://localhost:4000/post/create",
         formData,
         {
           headers: {
@@ -85,11 +86,10 @@ export function PostFormMobile() {
               key={cat}
               type="button"
               onClick={() => chooseCategory(cat)}
-              className={`${
-                chosenCategories.includes(cat)
+              className={`${chosenCategories.includes(cat)
                   ? "border-2 border-primary-500 "
                   : ""
-              } flex flex-auto rounded-lg mx-2 px-2 py-1 text-zinc-500 bg-zinc-100 dark:bg-zinc-800`}
+                } flex flex-auto rounded-lg mx-2 px-2 py-1 text-zinc-500 bg-zinc-100 dark:bg-zinc-800`}
             >
               {cat}
             </button>
@@ -97,7 +97,7 @@ export function PostFormMobile() {
         </div>
         {/* <Input size="lg" type="file" name="image" /> */}
 
-        <Input type="file" name="file" />
+        <Input type="file" name="image" />
 
         <Input
           size="lg"
@@ -112,7 +112,7 @@ export function PostFormMobile() {
           type="date"
           name="expiresAt"
         />
-        <Button size="lg" color="primary" variant="bordered" radius="small">
+        <Button type="submit" size="lg" color="primary" variant="bordered" radius="small">
           Create Post
         </Button>
       </form>
