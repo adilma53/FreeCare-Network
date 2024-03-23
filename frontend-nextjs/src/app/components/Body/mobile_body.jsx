@@ -5,7 +5,7 @@ import React from "react";
 import { Card, CardHeader, CardBody, CardFooter, Button } from "@nextui-org/react";
 export function BodyMobile() {
   return (
-    <div className="pt-10">
+    <div className="flex items-center justify-center p-3">
       <Card
           isPressable onPress={() => console.log("item pressed")}  
           className="px-auto py-auto">
