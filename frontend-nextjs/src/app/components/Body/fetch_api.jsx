@@ -1,6 +1,6 @@
 
 export async function ApiPosts() {
-  const posts = await fetch("http://localhost:3000/api/posts", {
+  const posts = await fetch("https://freecare-network-nextjs.vercel.app/api/posts", {
     method: "GET"
   });
   return posts.json();
