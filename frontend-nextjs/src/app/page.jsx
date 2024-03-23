@@ -1,13 +1,11 @@
 // import Image from "next/image";
 // components
-import { Hello } from "@/components/Body/hello";
-import { Footer } from "@/components/Footer/main_footer";
-import { Header } from "@/components/Header/main_header";
+import { BodyMain } from "@/components/Body/main_body";
 
 export default function Home() {
   return (
     <>
-      <Hello />
+      <BodyMain />
     </>
   );
 }
