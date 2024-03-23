@@ -26,7 +26,7 @@ import imageUploadRoutes from './routes/imageUpload.route.js';
 
 const prisma = new PrismaClient();
 const app = express();
-const port = 3000;
+const port = 4000;
 
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
 
