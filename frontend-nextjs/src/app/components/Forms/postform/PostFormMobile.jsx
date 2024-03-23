@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Input } from "@nextui-org/react";
+import { Button, Input } from "@nextui-org/react";
 
 const authorId = "e39f3c31-f20a-4790-8412-5f8ac9578253";
 const categories = [
@@ -60,9 +60,9 @@ export function PostFormMobile() {
   }
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="h-screen flex flex-col items-center mt-20">
       <form
-        className="rounded-xl w-[95%] flex flex-col space-y-4 "
+        className="p-4  w-[95%] flex flex-col space-y-4  rounded-3xl border border-zinc-300 dark:border-zinc-600"
         ref={(formRef) => setForm(formRef)}
         onSubmit={handleSubmit}
       >
@@ -75,7 +75,7 @@ export function PostFormMobile() {
         />
         <input
           size="lg"
-          className="w-full font-normal placeholder-zinc-500 bg-zinc-100 dark:bg-zinc-800  text-medium h-[200px] rounded-xl  px-3 "
+          className="focus:outline-none w-full font-normal placeholder-zinc-500 bg-zinc-100 dark:bg-zinc-800  text-medium h-[200px] rounded-2xl  px-3 "
           placeholder="Description goes here"
           name="content"
         />
@@ -86,7 +86,9 @@ export function PostFormMobile() {
               type="button"
               onClick={() => chooseCategory(cat)}
               className={`${
-                chosenCategories.includes(cat) ? "border-2 border-blue-500" : ""
+                chosenCategories.includes(cat)
+                  ? "border-2 border-primary-500 "
+                  : ""
               } flex flex-auto rounded-lg mx-2 px-2 py-1 text-zinc-500 bg-zinc-100 dark:bg-zinc-800`}
             >
               {cat}
@@ -110,14 +112,9 @@ export function PostFormMobile() {
           type="date"
           name="expiresAt"
         />
-        <div className="pt-5 flex justify-center">
-          <button
-            type="submit"
-            className="p-2 py-3 px-3 text-base font-semibold  bg-primary-500 rounded-md border border-primary-300 hover:border-primary-500 hover:bg-primary-700"
-          >
-            Create
-          </button>
-        </div>
+        <Button size="lg" color="primary" variant="bordered" radius="small">
+          Create Post
+        </Button>
       </form>
     </div>
   );
