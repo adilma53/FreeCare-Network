@@ -1,0 +1,50 @@
+[
+  {
+    "id": "1",
+    "title": "Iftar in Ramadan",
+    "content": "You are welcomes to eat with us if you want free meals are offered",
+    "image": "https://via.placeholder.com/300",
+    "claimLimit": 50,
+    "currentClaims": 0,
+    "expiresAt": "2024-04-01T00:00:00.000Z",
+    "createdAt": "2024-03-22T08:00:00.000Z",
+    "updatedAt": "2024-03-22T08:00:00.000Z",
+    "category": [
+      "Food",
+      "Ramadan"
+    ],
+    "authorId": "abcd1234"
+  },
+  {
+    "id": "2",
+    "title": "Eid al Adha mobarik",
+    "content": "I know how it is hard to offer a sheep during Eid I am able to help",
+    "image": "https://via.placeholder.com/300",
+    "claimLimit": 5,
+    "currentClaims": 0,
+    "expiresAt": null,
+    "createdAt": "2024-03-23T10:00:00.000Z",
+    "updatedAt": "2024-03-23T10:00:00.000Z",
+    "category": [
+      "Food",
+      "Health"
+    ],
+    "authorId": "efgh5678"
+  },
+  {
+    "id": "3",
+    "title": "Books",
+    "content": "here to offer my old books for new people who are willing to read them for free",
+    "image": "https://via.placeholder.com/300",
+    "claimLimit": 2,
+    "currentClaims": 0,
+    "expiresAt": null,
+    "createdAt": "2024-03-24T12:00:00.000Z",
+    "updatedAt": "2024-03-24T12:00:00.000Z",
+    "category": [
+      "Reading",
+      "Entertainment"
+    ],
+    "authorId": "ijkl9012"
+  }
+]
