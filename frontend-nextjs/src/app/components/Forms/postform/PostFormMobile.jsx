@@ -69,7 +69,7 @@ export function PostFormMobile() {
 
     try {
       const response = await axios.post(
-        "http://localhost:3000/post/create",
+        "http://localhost:4000/post/create",
         formData,
         {
           headers: {
@@ -88,8 +88,10 @@ export function PostFormMobile() {
   }, []);
 
   return (
-    <div className="h-screen flex flex-col items-center mt-20">
-      <h1 className="mb-10 text-2xl">{welcoming}</h1>
+    <div className="min-h-screen flex flex-col items-center mt-20 ">
+      <h1 className="mb-10 font-semibold text-xl whitespace-pre-line flex items-center justify-center ">
+        {welcoming}
+      </h1>
       <form
         className="p-4  w-[95%] flex flex-col space-y-4  rounded-3xl border border-zinc-300 dark:border-zinc-600"
         ref={(formRef) => setForm(formRef)}
@@ -128,7 +130,7 @@ export function PostFormMobile() {
         </div>
         {/* <Input size="lg" type="file" name="image" /> */}
 
-        <Input variant="faded" type="file" name="file" />
+        <Input variant="faded" type="file" name="image" />
 
         <Input
           variant="faded"
