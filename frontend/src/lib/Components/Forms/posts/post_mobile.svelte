@@ -57,7 +57,7 @@
 		console.log('formdata ---->', [...formData]);
 
 		axios
-			.post('http://localhost:3000/post/create', formData, {
+			.post('http://localhost:4000/post/create', formData, {
 				headers: {
 					'Content-Type': 'multipart/form-data'
 				}
