@@ -1,8 +1,8 @@
 "use client";
 import food from "@/public/food.jpg";
-import Image from "next/image";
+// import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { Card, CardBody, CardFooter, Button } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Button, Image } from "@nextui-org/react";
 
 export function BodyMobile() {
   // usestate
@@ -71,25 +71,18 @@ export function BodyMobile() {
           .slice()
           .reverse()
           .map((post) => (
-            <div
-              className="grid grid-cols-1 justify-center p-3 "
-              key={post.id}
-            >
+            <div className="grid grid-cols-1 justify-center p-3 " key={post.id}>
               <Card
                 isPressable
                 onPress={() => {
                   let PostId = post.id;
-                  window.location.href = (`userpost/${PostId}`)
+                  window.location.href = `userpost/${PostId}`;
                 }}
                 className="px-auto py-auto "
               >
                 <CardBody className="w-full h-full">
                   <div>
-                    <Image
-                      src={food}
-                      alt="pic of food"
-                      className="object-cover object-center w-full h-64 rounded-xl"
-                    />
+                    <Image isZoomed src={post.image} alt="NextUI hero Image" />
                     <h1 className="mt-4 text-xl font-bold text-gray-800 dark:text-white">
                       {post.title}
                     </h1>

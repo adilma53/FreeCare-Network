@@ -44,8 +44,6 @@ export function LoginCleaned() {
       redirect: false, // Prevent automatic redirection
     });
 
-    console.log("🚀 ~ handleLogin ~ signInData:", signInData);
-
     if (!signInData.ok) {
       setErrorLoginUpMessage("wrong credentials");
     } else {
