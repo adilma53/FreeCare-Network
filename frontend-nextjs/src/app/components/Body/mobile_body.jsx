@@ -1,5 +1,4 @@
 "use client";
-// import { ApiPosts } from "./fetch_api";
 import food from "@/public/food.jpg";
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
@@ -30,6 +29,40 @@ export function BodyMobile() {
     setIsClient(true); // This will be executed only on the client side
   }, []);
 
+  const timeSince = (dateString) => {
+    const date = new Date(dateString); // Parse the ISO 8601 string
+    const seconds = Math.floor((new Date() - date) / 1000);
+    const intervals = [
+      { limit: 31536000, label: "year" },
+      { limit: 2592000, label: "month" },
+      { limit: 86400, label: "day" },
+      { limit: 3600, label: "hour" },
+      { limit: 60, label: "minute" },
+      { limit: 1, label: "second" },
+    ];
+
+    for (let i = 0; i < intervals.length; i++) {
+      const interval = intervals[i];
+      const count = Math.floor(seconds / interval.limit);
+      if (count > 0) {
+        const plural = count === 1 ? "" : "s";
+        return `${count} ${interval.label}${plural} ago`;
+      }
+    }
+    return "just now";
+  };
+
+  // convert time
+  // {isClient && ( // Render button only on client-side
+  //   <Button
+  //     onClick={() => console.log("hello button")}
+  //     color="primary"
+  //     variant="flat"
+  //     radius="small"
+  //   >
+  //     Claim Offer
+  //   </Button>
+  // )}
   return (
     <>
       {posts &&
@@ -39,17 +72,18 @@ export function BodyMobile() {
           .reverse()
           .map((post) => (
             <div
-              className="flex items-center justify-center p-3 "
+              className="grid grid-cols-1 justify-center p-3 "
               key={post.id}
             >
               <Card
                 isPressable
                 onPress={() => {
-                  console.log("into the post");
+                  let PostId = post.id;
+                  window.location.href = (`userpost/${PostId}`)
                 }}
-                className="px-auto py-auto"
+                className="px-auto py-auto "
               >
-                <CardBody className="space-y-5">
+                <CardBody className="w-full h-full">
                   <div>
                     <Image
                       src={food}
@@ -65,19 +99,14 @@ export function BodyMobile() {
                   </div>
                 </CardBody>
                 <CardFooter className="p-2 flex justify-between py-6">
-                  <p className="text-lg pt-2 font-meduim text-gray-500">
+                  <p className="text-base pt-2 font-meduim text-gray-500">
                     {post.author.username}
                   </p>
-                  {isClient && ( // Render button only on client-side
-                    <Button
-                      onClick={() => console.log("hello button")}
-                      color="primary"
-                      variant="flat"
-                      radius="small"
-                    >
-                      Claim Offer
-                    </Button>
-                  )}
+                  <p className="text-base pt-2 font-meduim text-gray-500">
+                    {post.createdAt && (
+                      <span>{timeSince(new Date(post.createdAt))}</span>
+                    )}
+                  </p>
                 </CardFooter>
               </Card>
             </div>
