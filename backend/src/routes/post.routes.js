@@ -135,4 +135,27 @@ router.put('/:id', postController.updatePost);
  */
 router.delete('/:id', postController.deletePost);
 
+/**
+ * @swagger
+ * /post/categories/{category}:
+ *   get:
+ *     tags: [Posts]
+ *     summary: Get posts by category
+ *     parameters:
+ *       - in: path
+ *         name: category
+ *         schema:
+ *           type: string
+ *         required: true
+ *         description: Category name
+ *     responses:
+ *       '200':
+ *         description: A successful response
+ *       '400':
+ *         description: Bad request
+ *       '500':
+ *         description: Server error
+ */
+router.get('/categories/:category', postController.getPostsByCategory);
+
 export default router;

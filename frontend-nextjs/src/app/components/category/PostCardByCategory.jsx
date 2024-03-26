@@ -1,50 +1,20 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
-import { fetchGetPosts } from "~/services/posts";
 
-export function BodyMobile() {
+export function PostCardByCategory({ myPosts }) {
+  console.log("🚀 ~ PostCardByCategory ~ myPosts:", myPosts);
+
+  const [posts, setPosts] = useState();
+
   // usestate
-  // Fetch posts on component mount
-  const [posts, setPosts] = useState(null);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetch("http://localhost:4000/post");
-  //       const data = await response.json();
-  //       // console.log("DATA POST --> ", data);
-  //       setPosts(data);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
-
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const res = await fetchGetPosts();
-
-        console.log("🚀 ~ useEffect ~ res:", res);
-
-        if (res) {
-          setPosts(res);
-        }
-      } catch (error) {
-        console.log("🚀 ~ fetchData ~ error:", error);
-      }
-    }
-
-    fetchData();
-  }, []);
+  // Fetch myPosts on component mount
 
   // const [isClient, setIsClient] = useState(false);
 
-  // useEffect(() => {
-  //   setIsClient(true); // This will be executed only on the client side
-  // }, []);
+  useEffect(() => {
+    setPosts(myPosts); // This will be executed only on the client side
+  }, []);
 
   //convert time into text
   const timeSince = (dateString) => {

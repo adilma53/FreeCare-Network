@@ -43,8 +43,8 @@ export function NewHeader() {
         {/* center buttons */}
         <NavbarContent className="hidden sm:flex gap-3">
           <NavbarItem>
-            <Link color="foreground" href="#">
-              Home
+            <Link color="foreground" href="/categories">
+              Categories
             </Link>
           </NavbarItem>
           <NavbarItem>

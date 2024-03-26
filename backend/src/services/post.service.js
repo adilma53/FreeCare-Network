@@ -43,11 +43,11 @@ export async function deletePostById(postId) {
 }
 
 // get all posts by category
-export async function getAllPostsByCategory() {
+export async function getAllPostsByCategory(category) {
   const posts = await prisma.post.findMany({
     where: {
       category: {
-        contains: category,
+        hasSome: [category],
       },
     },
     include: {

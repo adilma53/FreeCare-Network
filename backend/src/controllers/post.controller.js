@@ -53,7 +53,7 @@ export async function createPost(req, res) {
 // get one by id
 export async function getPost(req, res) {
   try {
-    const post = await postService.getPostById(parseInt(req.params.id));
+    const post = await postService.getPostById(req.params.id);
     if (post) {
       res.status(200).json(post);
     } else {
@@ -105,6 +105,21 @@ export async function deletePost(req, res) {
       res.status(400).send();
     }
   } catch (err) {
+    res.status(500).json({ errorMessage: err.message });
+  }
+}
+
+// get all by category
+export async function getPostsByCategory(req, res) {
+  try {
+    const posts = await postService.getAllPostsByCategory(req.params.category);
+    if (posts) {
+      res.status(200).json(posts);
+    } else {
+      res.status(400).send();
+    }
+  } catch (err) {
+    console.log({ errorMessage: err.message });
     res.status(500).json({ errorMessage: err.message });
   }
 }
