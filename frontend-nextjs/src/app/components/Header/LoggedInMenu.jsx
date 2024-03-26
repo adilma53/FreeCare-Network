@@ -66,8 +66,7 @@ export function LoggedInMenu() {
           <DropdownItem
             isReadOnly
             key="profile"
-            className="h-14 gap-2"
-            className="opacity-100"
+            className="h-14 gap-2 opacity-100"
           >
             <User
               name={session.user.email}
