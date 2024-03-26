@@ -47,13 +47,13 @@ export function NewHeader() {
               Home
             </Link>
           </NavbarItem>
-          <NavbarItem >
+          <NavbarItem>
             <Link href="#" aria-current="page" color="foreground">
               Post
             </Link>
           </NavbarItem>
           <NavbarItem isActive>
-            <Link href="/auth/login" color="primary" aria-current="page" >
+            <Link href="/auth/login" color="primary" aria-current="page">
               Log In
             </Link>
           </NavbarItem>
@@ -76,9 +76,8 @@ export function NewHeader() {
           type="search"
         />
         {/* Dropdown */}
-        {status === "authenticated" && status !== "loading" ? (
-          <LoggedInMenu />
-        ) : (
+        {status === "authenticated" && status !== "loading" && <LoggedInMenu />}
+        {status === "unauthenticated" && status !== "loading" && (
           <LoggedOutMenu />
         )}
       </NavbarContent>

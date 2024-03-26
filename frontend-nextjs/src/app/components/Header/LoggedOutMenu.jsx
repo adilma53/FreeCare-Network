@@ -12,12 +12,9 @@ import {
   User,
   Avatar,
 } from "@nextui-org/react";
-import { signOut, useSession } from "next-auth/react";
 // import { PlusIcon } from "./PlusIcon.jsx";
 
 export function LoggedOutMenu() {
-  const { data: session, status } = useSession();
-
   return (
     <Dropdown
       showArrow
