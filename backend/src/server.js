@@ -28,7 +28,7 @@ const prisma = new PrismaClient();
 const app = express();
 const port = 4000;
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+app.use('/docs', swaggerUi.serve, swaggerUi.setup(specs));
 
 passportConfig(passport);
 app.use(
