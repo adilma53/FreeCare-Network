@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { useSession } from "next-auth/react";
+import { Input } from "@nextui-org/react";
 
 export default function admin() {
   const { data: session, status } = useSession();
