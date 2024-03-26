@@ -28,7 +28,10 @@ export function NewHeader() {
   const { data: session, status } = useSession();
 
   return (
-    <Navbar isBordered>
+    <Navbar
+      className="border-b border-neutral-500 dark:border-neutral-800 bg-neutral-900"
+      isBordered
+    >
       <NavbarContent justify="start">
         {/* logo */}
         {/* <Link href="/"> */}
