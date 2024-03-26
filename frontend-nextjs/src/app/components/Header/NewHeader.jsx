@@ -37,7 +37,7 @@ export function NewHeader() {
         {/* <Link href="/"> */}
         <NavbarBrand className=" cursor-pointer mr-4">
           <AcmeLogo />
-          <p className="hidden sm:block font-bold text-inherit onfocus">ACME</p>
+          <p className="hidden sm:block font-bold text-inherit onfocus">FreeCareNet</p>
         </NavbarBrand>
         {/* </Link> */}
 
@@ -45,17 +45,17 @@ export function NewHeader() {
         <NavbarContent className="hidden sm:flex gap-3">
           <NavbarItem>
             <Link color="foreground" href="#">
-              Features
+              Home
+            </Link>
+          </NavbarItem>
+          <NavbarItem >
+            <Link href="#" aria-current="page" color="foreground">
+              Post
             </Link>
           </NavbarItem>
           <NavbarItem isActive>
-            <Link href="#" aria-current="page" color="secondary">
-              Customers
-            </Link>
-          </NavbarItem>
-          <NavbarItem>
-            <Link color="foreground" href="#">
-              Integrations
+            <Link href="/auth/login" color="primary" aria-current="page" >
+              Log In
             </Link>
           </NavbarItem>
         </NavbarContent>
