@@ -15,7 +15,7 @@ import {
   Avatar,
   Button,
 } from "@nextui-org/react";
-import { AcmeLogo } from "./AcmeLogo";
+// import { AcmeLogo } from "./AcmeLogo";
 import { SearchIcon } from "./SearchIcon";
 import { LoggedInMenu } from "./LoggedInMenu";
 import { LoggedOutMenu } from "./LoggedOutMenu";
