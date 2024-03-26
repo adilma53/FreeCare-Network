@@ -1,8 +1,6 @@
 "use client";
-import food from "@/public/food.jpg";
-// import Image from "next/image";
 import React, { useEffect, useState } from "react";
-import { Card, CardBody, CardFooter, Button, Image } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 
 export function BodyMobile() {
   // usestate
@@ -23,12 +21,13 @@ export function BodyMobile() {
     fetchData();
   }, []);
 
-  const [isClient, setIsClient] = useState(false);
+  // const [isClient, setIsClient] = useState(false);
 
-  useEffect(() => {
-    setIsClient(true); // This will be executed only on the client side
-  }, []);
+  // useEffect(() => {
+  //   setIsClient(true); // This will be executed only on the client side
+  // }, []);
 
+  //convert time into text
   const timeSince = (dateString) => {
     const date = new Date(dateString); // Parse the ISO 8601 string
     const seconds = Math.floor((new Date() - date) / 1000);
@@ -52,17 +51,25 @@ export function BodyMobile() {
     return "just now";
   };
 
-  // convert time
-  // {isClient && ( // Render button only on client-side
-  //   <Button
-  //     onClick={() => console.log("hello button")}
-  //     color="primary"
-  //     variant="flat"
-  //     radius="small"
-  //   >
-  //     Claim Offer
-  //   </Button>
-  // )}
+  // post content len
+  const PostContent = (post) => {
+    const content = post.content;
+    const MAXLEN = 300;
+    if (content.length > MAXLEN) {
+      return (
+        <>
+          {content.substring(0, MAXLEN)}...{" "}
+          <span
+            className="text-blue-500 cursor-pointer"
+          >
+            Read more
+          </span>
+        </>
+      );
+    }
+    return content;
+  }
+
   return (
     <>
       {posts &&
@@ -86,8 +93,8 @@ export function BodyMobile() {
                     <h1 className="mt-4 text-xl font-bold text-gray-800 dark:text-white">
                       {post.title}
                     </h1>
-                    <p className="mt-2 text-gray-500 dark:text-gray-400">
-                      {post.content}
+                    <p className="text-sm mt-2 text-gray-500 dark:text-gray-400">
+                      {PostContent(post)}
                     </p>
                   </div>
                 </CardBody>

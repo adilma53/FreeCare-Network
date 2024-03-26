@@ -1,11 +1,28 @@
 "use client";
+import { useRouter } from "next/navigation";
 export function BottomNav() {
+  const router = useRouter();
+  const Navin = (RouteName) => {
+    return () => {
+      if (RouteName === "HOME") {
+        // Navigate to a new page
+        router.push("/");
+        // prefetch the data on the new page before going to the route
+        router.prefetch();
+      } else if (RouteName === "POST") {
+        router.push("/post");
+      } else if (RouteName === "Profile") {
+        router.push("/auth/login");
+      }
+    };
+  };
   return (
     <div className="fixed bottom-0 left-0 z-50 w-full h-16 bg-gray-50 border-t border-gray-400 dark:bg-neutral-800 dark:border-gray-600">
       <div className="grid h-full max-w-lg grid-cols-3 mx-auto font-medium">
         <button
-          onClick={() => { window.location.href = "/" }}
-          className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 dark:hover:bg-neutral-700 group">
+          onClick={Navin("HOME")}
+          className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 dark:hover:bg-neutral-700 group"
+        >
           <svg
             className="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
             aria-hidden="true"
@@ -19,9 +36,10 @@ export function BottomNav() {
             Home
           </span>
         </button>
-        <button 
-          onClick={() => { window.location.href = "/post" }} 
-          className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 dark:hover:bg-neutral-700 group">
+        <button
+          onClick={Navin("POST")}
+          className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 dark:hover:bg-neutral-700 group"
+        >
           <svg
             className="w-5 h-5 mb-2 text-gray-500 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-500"
             aria-hidden="true"
@@ -40,7 +58,7 @@ export function BottomNav() {
           </span>
         </button>
         <button
-          onClick={() => { window.location.href = "/auth/login" }}
+          onClick={Navin("Profile")}
           className="inline-flex flex-col items-center justify-center px-5 hover:bg-gray-100 dark:hover:bg-neutral-700 group"
         >
           <svg
