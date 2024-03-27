@@ -4,31 +4,40 @@ import { useEffect, useState } from "react";
 import { fetchGetPosts } from "~/services/posts";
 
 export function InsidePost({ params }) {
-  const [post, setPostId] = useState(null);
+  const [post, setPost] = useState(null);
 
   useEffect(() => {
-    async function FetchById() {
+    async function FetchPost() {
       try {
-        const res = await fetchGetPosts(params.id);
-        console.log("post id title --> ", res.title);
-        if (res) {
-          setPostId(res);
-        }
+        const res = await fetchGetPosts(params.id); // Assuming this returns a single post object
+        console.log("Fetched post:", res);
+        setPost(res);
       } catch (error) {
-        console.error("fetching didn't goes well");
+        console.error("Fetching post failed:", error);
       }
     }
-    FetchById();
-  }, [params.id]);
+    FetchPost();
+  }, [params.id]); // Make sure to include params.id in the dependency array
 
   return (
-    post &&
-    post.length > 0 && (
-      <div className="flex items-center justify-center">
+    <div className="flex items-center justify-center">
+      {post ? (
+        <div>
+          <h1 className="text-2xl font-semibold text-blue-300">
+            You are inside the post:
+          </h1>
+          <div>
+            <h2>{post.title}</h2>
+            <p>{post.content}</p>
+            <p>Author: {post.author}</p>
+            <p>Created at: {post.createdAt}</p>
+          </div>
+        </div>
+      ) : (
         <h1 className="text-2xl font-semibold text-blue-300">
-          You are inside The Post with title: {params.id}
+          Loading post...
         </h1>
-      </div>
-    )
+      )}
+    </div>
   );
 }

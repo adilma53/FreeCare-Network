@@ -94,7 +94,7 @@ export function BodyMobile() {
                       className="w-screen"
                       isZoomed
                       src={post.image}
-                      alt="NextUI hero Image"
+                      alt="Image from database"
                     />
                     <h1 className="mt-4 text-xl font-bold text-gray-800 dark:text-white">
                       {post.title}
