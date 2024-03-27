@@ -3,6 +3,29 @@ import React, { useEffect, useState } from "react";
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 import { fetchGetPosts } from "~/services/posts";
 
+export function timeSince(dateString) {
+  const date = new Date(dateString); // Parse the ISO 8601 string
+  const seconds = Math.floor((new Date() - date) / 1000);
+  const intervals = [
+    { limit: 31536000, label: "year" },
+    { limit: 2592000, label: "month" },
+    { limit: 86400, label: "day" },
+    { limit: 3600, label: "hour" },
+    { limit: 60, label: "minute" },
+    { limit: 1, label: "second" },
+  ];
+
+  for (let i = 0; i < intervals.length; i++) {
+    const interval = intervals[i];
+    const count = Math.floor(seconds / interval.limit);
+    if (count > 0) {
+      const plural = count === 1 ? "" : "s";
+      return `${count} ${interval.label}${plural} ago`;
+    }
+  }
+  return "just now";
+}
+
 export function BodyMobile() {
   // usestate
   // Fetch posts on component mount
@@ -33,28 +56,6 @@ export function BodyMobile() {
   // }, []);
 
   //convert time into text
-  const timeSince = (dateString) => {
-    const date = new Date(dateString); // Parse the ISO 8601 string
-    const seconds = Math.floor((new Date() - date) / 1000);
-    const intervals = [
-      { limit: 31536000, label: "year" },
-      { limit: 2592000, label: "month" },
-      { limit: 86400, label: "day" },
-      { limit: 3600, label: "hour" },
-      { limit: 60, label: "minute" },
-      { limit: 1, label: "second" },
-    ];
-
-    for (let i = 0; i < intervals.length; i++) {
-      const interval = intervals[i];
-      const count = Math.floor(seconds / interval.limit);
-      if (count > 0) {
-        const plural = count === 1 ? "" : "s";
-        return `${count} ${interval.label}${plural} ago`;
-      }
-    }
-    return "just now";
-  };
 
   // post content len
   const PostContent = (post) => {
