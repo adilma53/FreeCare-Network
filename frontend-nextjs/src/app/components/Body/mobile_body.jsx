@@ -8,20 +8,6 @@ export function BodyMobile() {
   // Fetch posts on component mount
   const [posts, setPosts] = useState(null);
 
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     try {
-  //       const response = await fetch("http://localhost:4000/post");
-  //       const data = await response.json();
-  //       // console.log("DATA POST --> ", data);
-  //       setPosts(data);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     }
-  //   }
-  //   fetchData();
-  // }, []);
-
   useEffect(() => {
     async function fetchData() {
       try {
@@ -134,3 +120,17 @@ export function BodyMobile() {
     </>
   );
 }
+
+// useEffect(() => {
+//   async function fetchData() {
+//     try {
+//       const response = await fetch("http://localhost:4000/post");
+//       const data = await response.json();
+//       // console.log("DATA POST --> ", data);
+//       setPosts(data);
+//     } catch (error) {
+//       console.error("Error fetching data:", error);
+//     }
+//   }
+//   fetchData();
+// }, []);

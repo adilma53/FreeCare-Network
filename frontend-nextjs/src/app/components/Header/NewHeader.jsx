@@ -36,7 +36,9 @@ export function NewHeader() {
         {/* logo */}
         {/* <Link href="/"> */}
         <NavbarBrand className=" cursor-pointer mr-4">
-          <p className="font-bold text-inherit onfocus">FreeCareNet</p>
+          <Link href="/" className="font-bold text-inherit onfocus">
+            FreeCareNet
+          </Link>
         </NavbarBrand>
         {/* </Link> */}
 
