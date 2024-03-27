@@ -88,8 +88,6 @@ export function Categories() {
 
   return (
     <div className="m-8 gap-2 grid grid-cols-2 sm:grid-cols-4">
-      <Image src={categories[0].img} alt="Food" />
-
       {categories.map((item, index) => (
         <Card
           shadow="sm"
