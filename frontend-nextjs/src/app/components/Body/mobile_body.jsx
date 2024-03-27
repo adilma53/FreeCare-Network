@@ -104,7 +104,12 @@ export function BodyMobile() {
               >
                 <CardBody className="w-full h-full">
                   <div>
-                    <Image isZoomed src={post.image} alt="NextUI hero Image" />
+                    <Image
+                      className="w-screen"
+                      isZoomed
+                      src={post.image}
+                      alt="NextUI hero Image"
+                    />
                     <h1 className="mt-4 text-xl font-bold text-gray-800 dark:text-white">
                       {post.title}
                     </h1>
