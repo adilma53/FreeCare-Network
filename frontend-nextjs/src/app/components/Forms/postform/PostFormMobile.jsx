@@ -4,6 +4,8 @@ import { Button, Input } from "@nextui-org/react";
 
 const authorId = "e39f3c31-f20a-4790-8412-5f8ac9578253";
 const categories = [
+  "Reading",
+  "Books",
   "Food",
   "Doctor",
   "Hygiene",
