@@ -6,44 +6,90 @@ export function Categories() {
   const categories = [
     {
       category: "Food",
-      img: "https://images.unsplash.com/photo-1699959731697-a8211992989b?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      img: "/images/premium_photo-1663040178972-ee1d45d33899.jpeg",
+    },
+    {
+      category: "Doctor",
+      img: "",
+    },
+    {
+      category: "Hygiene",
+      img: "",
+    },
+    {
+      category: "Financial",
+      img: "",
     },
     {
       category: "Clothing",
-      img: "https://images.unsplash.com/photo-1699959731697-a8211992989b?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      img: "",
     },
     {
-      category: "Orange",
-      img: "https://images.unsplash.com/photo-1699959731697-a8211992989b?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      category: "Employment",
+      img: "",
     },
     {
-      category: "Orange",
-      img: "https://images.unsplash.com/photo-1699959731697-a8211992989b?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      category: "Legal_Aid",
+      img: "",
     },
     {
-      category: "Orange",
-      img: "https://images.unsplash.com/photo-1699959731697-a8211992989b?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      category: "Dental",
+      img: "",
     },
     {
-      category: "Orange",
-      img: "https://images.unsplash.com/photo-1699959731697-a8211992989b?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      category: "Veterinary",
+      img: "",
     },
     {
-      category: "Orange",
-      img: "https://images.unsplash.com/photo-1699959731697-a8211992989b?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      category: "MentalHealth",
+      img: "",
     },
     {
-      category: "Orange",
-      img: "https://images.unsplash.com/photo-1699959731697-a8211992989b?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      category: "Shelter",
+      img: "",
     },
     {
-      category: "Orange",
-      img: "https://images.unsplash.com/photo-1699959731697-a8211992989b?q=80&w=1528&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+      category: "Education",
+      img: "",
+    },
+    {
+      category: "Transportation",
+      img: "",
+    },
+    {
+      category: "Childcare",
+      img: "",
+    },
+    {
+      category: "Utilities",
+      img: "",
+    },
+    {
+      category: "Senior_Care",
+      img: "",
+    },
+    {
+      category: "Community_Support",
+      img: "",
+    },
+    {
+      category: "Disaster_Relief",
+      img: "",
+    },
+    {
+      category: "Environmental",
+      img: "",
+    },
+    {
+      category: "Emergency_Aid",
+      img: "",
     },
   ];
 
   return (
     <div className="m-8 gap-2 grid grid-cols-2 sm:grid-cols-4">
+      <Image src={categories[0].img} alt="Food" />
+
       {categories.map((item, index) => (
         <Card
           shadow="sm"
@@ -53,8 +99,6 @@ export function Categories() {
         >
           <CardBody className="overflow-visible p-0">
             <Image
-              shadow="sm"
-              radius="lg"
               width="100%"
               alt={item.category}
               className="w-full object-cover h-[140px]"
