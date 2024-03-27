@@ -2,19 +2,13 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardBody, CardFooter, Image } from "@nextui-org/react";
 
-export function PostCardByCategory({ myPosts }) {
-  console.log("🚀 ~ PostCardByCategory ~ myPosts:", myPosts);
-
-  const [posts, setPosts] = useState();
+export function PostCardByCategory({ posts }) {
+  console.log("🚀 ~ PostCardByCategory ~ posts:", posts);
 
   // usestate
-  // Fetch myPosts on component mount
+  // Fetch posts on component mount
 
   // const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setPosts(myPosts); // This will be executed only on the client side
-  }, []);
 
   //convert time into text
   const timeSince = (dateString) => {

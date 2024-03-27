@@ -6,13 +6,30 @@ import { fetchGetPosts } from "~/services/posts";
 export function Category({ categoryId }) {
   const [posts, setPosts] = useState();
 
-  useEffect(async () => {
-    const res = await fetchGetPosts("/categories/${categoryId}");
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const res = await fetchGetPosts(`/categories/${categoryId}`);
 
-    if (res) {
-      setPosts(posts);
+        console.log("🚀 ~ useEffect ~ res:", res);
+
+        if (res) {
+          setPosts(res);
+        }
+      } catch (error) {
+        console.log("🚀 ~ fetchData ~ error:", error);
+      }
     }
-  }, []);
 
-  return <PostCardByCategory myPosts={posts} />;
+    fetchData();
+  }, []);
+  // useEffect(async () => {
+  //   const res = await fetchGetPosts();
+
+  //   if (res) {
+  //     setPosts(posts);
+  //   }
+  // }, []);
+
+  return <PostCardByCategory posts={posts} />;
 }
